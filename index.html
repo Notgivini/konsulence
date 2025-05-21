@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konsulencë arGEar - Professional Business Consulting</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #e11d48 0%, #1e40af 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #e11d48 0%, #1e40af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(225, 29, 72, 0.1), 0 10px 10px -5px rgba(30, 64, 175, 0.04);
+        }
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 24px;
+            display: inline-flex;
+            align-items: center;
+        }
+        .logo-blue {
+            color: #1e40af;
+        }
+        .logo-red {
+            color: #e11d48;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #e11d48 0%, #1e40af 100%);
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #be123c 0%, #1e3a8a 100%);
+        }
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 50%;
+            overflow: hidden;
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+        .contact-info-item {
+            transition: all 0.3s ease;
+        }
+        .contact-info-item:hover {
+            transform: translateX(5px);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(135deg, #e11d48 0%, #1e40af 100%);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <!-- Updated Logo with specific colored letters -->
+                <div class="logo-text">
+                    <span class="text-black">konsulencë ar</span><span class="logo-blue">G</span><span class="logo-red">E</span><span class="text-black">ar</span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link text-gray-700 hover:text-red-600 font-medium transition duration-300">Home</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-blue-700 font-medium transition duration-300">About Us</a>
+                <a href="#services" class="nav-link text-gray-700 hover:text-red-600 font-medium transition duration-300">Services</a>
+                <a href="#why-us" class="nav-link text-gray-700 hover:text-blue-700 font-medium transition duration-300">Why Us</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-red-600 font-medium transition duration-300">Contact</a>
+            </div>
+            
+            <div class="md:hidden">
+                <button id="menu-toggle" class="focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#home" class="text-gray-700 hover:text-red-600 font-medium transition duration-300">Home</a>
+                <a href="#about" class="text-gray-700 hover:text-blue-700 font-medium transition duration-300">About Us</a>
+                <a href="#services" class="text-gray-700 hover:text-red-600 font-medium transition duration-300">Services</a>
+                <a href="#why-us" class="text-gray-700 hover:text-blue-700 font-medium transition duration-300">Why Us</a>
+                <a href="#contact" class="text-gray-700 hover:text-red-600 font-medium transition duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 gradient-bg">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 text-center md:text-left mb-8 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Professional Business Consulting</h1>
+                    <p class="text-xl text-blue-100 mb-8">Providing expert business consulting services since 2015</p>
+                    <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#services" class="bg-white text-red-600 font-medium py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100 transition duration-300 text-center">Our Services</a>
+                        <a href="#contact" class="bg-transparent border-2 border-white text-white font-medium py-3 px-6 rounded-lg hover:bg-white hover:text-blue-700 transition duration-300 text-center">Contact Us</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <!-- <div class="bg-white p-6 rounded-lg shadow-xl">-->
+                       
+                              <img src="logo.png" alt="Logo" class="w-full h-auto" />
+                         
+                          
+                    <!-- </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-black">About Us</h2>
+                <div class="w-24 h-1 bg-red-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                   <!-- <div class="bg-blue-50 p-6 rounded-lg">
+                        <svg class="w-full h-auto" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="50" y="50" width="300" height="200" rx="10" fill="#dbeafe" />
+                            <circle cx="120" cy="100" r="30" fill="#1e40af" />
+                            <circle cx="200" cy="100" r="30" fill="#e11d48" />
+                            <circle cx="280" cy="100" r="30" fill="#1e40af" />
+                            <rect x="80" y="170" width="240" height="40" rx="5" fill="#e11d48" opacity="0.8" />
+                            <text x="200" y="195" font-family="Arial" font-size="16" fill="#ffffff" text-anchor="middle">Founded in 2015</text>
+                        </svg>
+                    </div> -->
+                    <img src="w-modified.png" alt="Logo" class="w-186 md:w-199 h-auto mx-auto" />
+
+
+                </div>
+                
+                <div class="md:w-1/2 md:pl-8">
+                    <h3 class="text-2xl font-semibold mb-4 text-red-600">Our Story</h3>
+                    <p class="text-gray-700 mb-4">
+                        <span class="font-semibold">Konsulencë ar<span class="logo-blue">G</span><span class="logo-red">E</span>ar</span> was founded on January 6, 2015, by Gilber Hysaj, who is also the Administrator of this company. We currently employ 3 full-time professionals dedicated to providing exceptional business consulting services.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        In our first year, we served 4 companies with the status of "SHPK-Limited Liability Company" and 7 companies with the status of "PF-Physical Person". Today, we proudly administer 16 companies with SHPK status and 21 with PF status.
+                    </p>
+                    <p class="text-gray-700 mb-4">
+                        Our clients operate in various fields including production, processing, trade (imports and exports), and various services. Of the companies with SHPK status, 4 have foreign shareholders and 2 are subsidiaries of international companies.
+                    </p>
+                    <p class="text-gray-700">
+                        Since 2021, we've adapted to Albania's tax legislation changes by becoming users of the most widely used fiscal programs operating in the cloud: DEVPOS, BILLS.AL, EASYPOS, ICASH, and SCONNECT.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-red-50 p-6 rounded-lg text-center border-b-4 border-red-600 hover:shadow-lg transition duration-300">
+                    <div class="text-4xl font-bold text-red-600 mb-2">10+</div>
+                    <p class="text-gray-700">Years of Experience</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg text-center border-b-4 border-blue-700 hover:shadow-lg transition duration-300">
+                    <div class="text-4xl font-bold text-blue-700 mb-2">37+</div>
+                    <p class="text-gray-700">Satisfied Clients</p>
+                </div>
+                <div class="bg-red-50 p-6 rounded-lg text-center border-b-4 border-red-600 hover:shadow-lg transition duration-300">
+                    <div class="text-4xl font-bold text-red-600 mb-2">5+</div>
+                    <p class="text-gray-700">Fiscal Programs</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-black">What We Offer</h2>
+                <div class="w-24 h-1 bg-blue-700 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Comprehensive business consulting services tailored to meet your specific needs</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md transition duration-300 border-t-4 border-red-600">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                            <path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-black-600">Business Plans</h3>
+                    <p class="text-gray-600">Comprehensive business plans for both Albanian clients and foreign investors, tailored to your specific needs and goals.</p>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md transition duration-300 border-t-4 border-blue-700">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-blue-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-black-600">Tax Legislation Advice</h3>
+                    <p class="text-gray-600">Expert guidance on tax legislation and efficient business management to help you navigate complex regulations.</p>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md transition duration-300 border-t-4 border-red-600">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-black-600">Business Reports</h3>
+                    <p class="text-gray-600">Monthly and annual reports on business performance with detailed analysis to help you make informed decisions.</p>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md transition duration-300 border-t-4 border-blue-700">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-blue-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-black-600">Accounting Services</h3>
+                    <p class="text-gray-600">Comprehensive accounting services and periodic submission of all tax declarations for individuals and businesses.</p>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md transition duration-300 border-t-4 border-red-600">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-red-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-black-600">Bank Account Management</h3>
+                    <p class="text-gray-600">Full administration of bank accounts through ebanking platforms, enabling clients to make periodic monthly payments.</p>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md transition duration-300 border-t-4 border-blue-700">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <svg class="w-8 h-8 text-blue-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v7a1 1 0 102 0V8z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-black-600">Fiscal Program Support</h3>
+                    <p class="text-gray-600">Issuing of invoices with licensed fiscal programs such as DEVPOS, BILLS.AL, EASYPOS, ICASH, SCONNECT, and more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-black">Why Choose Us</h2>
+                <div class="w-24 h-1 bg-red-600 mx-auto"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">The ar<span class="logo-blue">G</span><span class="logo-red">E</span>ar consulting company offers correctness, reliability, and maximum commitment to each client</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Reason 1 -->
+                <div class="flex items-start p-6 bg-red-50 rounded-lg border-l-4 border-red-600 hover:shadow-lg transition duration-300">
+                    <div class="text-3xl text-red-600 mr-4">1</div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-black-600">Years of Experience</h3>
+                        <p class="text-gray-700">Many years of experience in the field of consulting services to businesses of various profiles.</p>
+                    </div>
+                </div>
+                
+                <!-- Reason 2 -->
+                <div class="flex items-start p-6 bg-blue-50 rounded-lg border-l-4 border-blue-700 hover:shadow-lg transition duration-300">
+                    <div class="text-3xl text-blue-700 mr-4">2</div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-black-600">Continuous Updates</h3>
+                        <p class="text-gray-700">Continuous updates with legal changes that directly and indirectly affect our clients.</p>
+                    </div>
+                </div>
+                
+                <!-- Reason 3 -->
+                <div class="flex items-start p-6 bg-red-50 rounded-lg border-l-4 border-red-600 hover:shadow-lg transition duration-300">
+                    <div class="text-3xl text-red-600 mr-4">3</div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-black-600">Complete Confidentiality</h3>
+                        <p class="text-gray-700">Complete confidentiality of any economic, financial, tax, etc. data of our clients.</p>
+                    </div>
+                </div>
+                
+                <!-- Reason 4 -->
+                <div class="flex items-start p-6 bg-blue-50 rounded-lg border-l-4 border-blue-700 hover:shadow-lg transition duration-300">
+                    <div class="text-3xl text-blue-700 mr-4">4</div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-2 text-black-600">Personal Representation</h3>
+                        <p class="text-gray-700">Representation "in persona" of our clients before State Institutions, such as the General Directorate of Taxes, the General Directorate of Social Insurance, etc.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 gradient-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Contact Us</h2>
+                <div class="w-24 h-1 bg-white mx-auto"></div>
+                <p class="text-blue-100 mt-4 max-w-2xl mx-auto">Get in touch with our team of experts to discuss how we can help your business</p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                <div class="flex flex-col md:flex-row">
+                    <div class="md:w-1/2 p-8">
+                        <h3 class="text-2xl font-semibold mb-4 text-red-600">Send Us a Message</h3>
+                        <form id="contact-form" class="space-y-4" action="mailto:argear_konsulence@yahoo.it" method="post" enctype="text/plain">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2">Full Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Your name" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Your email" required>
+                            </div>
+                            <div>
+                                <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                                <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Subject" required>
+                            </div>
+                            <div>
+                                <label for="message" class="block text-gray-700 mb-2">Message</label>
+                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500" placeholder="Your message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary text-white font-medium py-2 px-6 rounded-lg transition duration-300 hover:shadow-lg">Send Message</button>
+                        </form>
+                    </div>
+                    
+                    <div class="md:w-1/2 bg-blue-50 p-8">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-700">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start contact-info-item">
+                                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                    <svg class="w-5 h-5 text-blue-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Address</h4>
+                                    <p class="text-gray-600">Rruga Mbreti Gent<br>Shkodër, Albania</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start contact-info-item">
+                                <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                                    <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Phone</h4>
+                                    <p class="text-gray-600">+355 68 66 555 262</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start contact-info-item">
+                                <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                    <svg class="w-5 h-5 text-blue-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Email</h4>
+                                    <p class="text-gray-600">argear_konsulence@yahoo.it</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start contact-info-item">
+                                <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-4">
+                                    <svg class="w-5 h-5 text-red-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Business Hours</h4>
+                                    <p class="text-gray-600">Monday - Friday: 9:00 AM - 5:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-medium text-gray-800 mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.facebook.com/argearok" target="_blank" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition duration-300 social-icon" aria-label="Facebook">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path>
+                                    </svg>
+                                </a>
+                                <a href="https://www.instagram.com/konsulence_argear/" target="_blank" class="w-10 h-10 bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 rounded-full flex items-center justify-center text-white hover:from-purple-600 hover:via-pink-600 hover:to-red-600 transition duration-300 social-icon" aria-label="Instagram">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153.509.5.902 1.105 1.153 1.772.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 01-1.153 1.772c-.5.508-1.105.902-1.772 1.153-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 01-1.772-1.153 4.904 4.904 0 01-1.153-1.772c-.247-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 011.153-1.772A4.897 4.897 0 015.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 1.802c-2.67 0-2.986.01-4.04.059-.976.045-1.505.207-1.858.344-.466.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.048 1.055-.058 1.37-.058 4.041 0 2.67.01 2.986.058 4.04.045.976.207 1.505.344 1.858.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058 2.67 0 2.987-.01 4.04-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041 0-2.67-.01-2.986-.058-4.04-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.055-.048-1.37-.058-4.041-.058zm0 3.063a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 8.468a3.333 3.333 0 100-6.666 3.333 3.333 0 000 6.666zm6.538-8.469a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"></path>
+                                    </svg>
+                                </a>
+                                <a href="https://al.linkedin.com/company/konsulencë-argear" target="_blank" class="w-10 h-10 bg-blue-700 rounded-full flex items-center justify-center text-white hover:bg-blue-800 transition duration-300 social-icon" aria-label="LinkedIn">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="rounded-lg overflow-hidden shadow-lg">
+                <div class="map-container">
+                    <!-- Updated with the exact location of konsulencë arGEar -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2946.9883518511!2d19.49988561542922!3d42.05590587920963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134e01c565fa059f%3A0x82fc0cf8fb43c8b8!2skonsulenc%C3%AB%20arGEar!5e0!3m2!1sen!2sus!4v1625764215784!5m2!1sen!2sus" 
+                        width="600" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <!-- Updated Footer Logo with specific colored letters -->
+                    <div class="logo-text">
+                        <span class="text-white">konsulencë ar</span><span class="logo-blue">G</span><span class="logo-red">E</span><span class="text-white">ar</span>
+                    </div>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <!-- Updated copyright year range -->
+                    <p>&copy; 2015-2025 konsulencë arGEar. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Enhanced contact form functionality
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple validation
+            if (!name || !email || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Create mailto link with form data
+            const mailtoLink = `mailto:argear_konsulence@yahoo.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show confirmation
+            alert('Thank you for your message! Your default email client will open to send this message.');
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Add animation to service cards
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
