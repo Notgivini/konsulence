@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="sq">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>DSS — Department of Software Solutions @ konsulencë arGEar</title>
+<meta name="description" content="Department of Software Solutions @ konsulencë arGEar — software i bërë në shtëpi për biznesin tuaj." />
+<link rel="icon" href="assets/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css" />
+<script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>
+<style>
+.dss-hero{padding:120px var(--pad-x) 96px;background:var(--bg);border-bottom:1px solid var(--line);text-align:center}
+.dss-hero .crumbs{font-family:var(--font);font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);display:flex;justify-content:center;gap:14px;margin-bottom:36px;font-weight:600}
+.dss-hero .crumbs a{color:var(--mute)} .dss-hero .crumbs .sep{color:var(--red)}
+.dss-hero .logo-wrap{display:flex;justify-content:center;margin-bottom:38px}
+.dss-hero .logo-wrap img{
+  width:auto;height:clamp(160px,19vw,232px);
+  filter:drop-shadow(0 30px 60px rgba(16,22,38,.15));
+  mix-blend-mode:multiply;
+}
+.dss-hero h1{font-family:var(--font);font-weight:600;font-size:clamp(42px,6.4vw,108px);line-height:.96;letter-spacing:-0.05em;color:var(--ink);margin:0;max-width:18ch;margin-left:auto;margin-right:auto}
+.dss-hero h1 em{color:var(--red);font-style:normal}
+.dss-hero h1 .nv{color:var(--navy)}
+.dss-hero .lead{margin:30px auto 0;max-width:620px;font-family:var(--font);font-weight:400;font-size:19px;line-height:1.6;color:var(--ink-2)}
+.dss-hero .actions{margin-top:34px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ===== passion / mini-manifesto strip ===== */
+.dss-manifesto{padding:96px var(--pad-x);background:var(--bg);border-bottom:1px solid var(--line);text-align:center;position:relative}
+.dss-manifesto .container{max-width:880px;margin:0 auto}
+.dss-manifesto .quote{
+  font-family:var(--font);font-weight:300;font-style:italic;font-size:clamp(26px,3vw,44px);
+  letter-spacing:-0.015em;line-height:1.28;color:var(--ink);margin:0;
+}
+.dss-manifesto .quote em{color:var(--red);font-style:italic;font-weight:400}
+.dss-manifesto .quote .nv{color:var(--navy)}
+.dss-manifesto .sub{margin-top:26px;font-family:var(--font);font-weight:600;font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute)}
+
+/* ===== showcase (Aceternity ContainerScroll) ===== */
+.showcase{padding:56px var(--pad-x) 108px;background:var(--bg);overflow:hidden}
+.showcase .container{max-width:1400px;margin:0 auto}
+
+.cs-stage{padding:52px 0 32px}
+.cs-header{padding-bottom:28px}
+.cs-header .eyebrow{margin-bottom:14px;display:inline-flex}
+.cs-header h2{font-family:var(--font);font-weight:600;font-size:clamp(34px,4.5vw,72px);letter-spacing:-0.04em;line-height:1;color:var(--ink);margin:0;max-width:20ch;margin-left:auto;margin-right:auto}
+.cs-header h2 em{color:var(--red);font-style:normal}
+.cs-header p{font-family:var(--font);font-weight:400;font-size:17.5px;color:var(--ink-2);line-height:1.6;max-width:580px;margin:22px auto 0}
+
+/* the case-card lives inside cs-card-inner; full-bleed 3D scene */
+.case-card{
+  position:relative;width:100%;height:820px;
+  background:#000;border-radius:22px;overflow:hidden;
+}
+.case-card .caption{
+  position:absolute;top:28px;left:28px;z-index:4;
+  font-family:var(--font);font-size:13px;letter-spacing:.24em;text-transform:uppercase;
+  color:#fff;font-weight:600;
+  display:inline-flex;align-items:center;gap:12px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+  padding:11px 20px;border-radius:999px;backdrop-filter:blur(10px);
+}
+.case-card .caption .pin{width:6px;height:6px;background:var(--red);border-radius:50%;display:inline-block}
+.case-card .spotlight{
+  position:absolute;pointer-events:none;z-index:1;top:-40%;left:-10%;width:138%;height:169%;
+  background:radial-gradient(ellipse 50% 30% at 50% 50%,rgba(255,255,255,.18),transparent 70%);
+  filter:blur(120px);opacity:0;animation:spotlight 2.4s ease-out .15s forwards;
+}
+@keyframes spotlight{from{opacity:0;transform:translate(-72px,-72px) scale(.5)}to{opacity:1;transform:translate(0,0) scale(1)}}
+.case-card .pointer-glow{
+  position:absolute;width:280px;height:280px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.16),transparent 65%);
+  filter:blur(28px);pointer-events:none;z-index:2;opacity:0;
+  transition:opacity .25s ease;will-change:transform;transform:translate3d(-140px,-140px,0);
+}
+.case-card:hover .pointer-glow{opacity:1}
+.case-card .copy{
+  position:relative;z-index:3;padding:48px 36px;display:flex;flex-direction:column;justify-content:center;gap:16px;
+}
+.case-card .copy .lab{font-family:var(--font);font-size:10.5px;letter-spacing:.32em;text-transform:uppercase;color:var(--red);font-weight:600}
+.case-card .copy h3{
+  font-family:var(--font);font-weight:500;font-size:clamp(28px,2.6vw,40px);letter-spacing:-0.025em;line-height:1.04;
+  background:linear-gradient(180deg,#fafafa 0%,#a3a3a3 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;margin:0;
+}
+.case-card .copy h3 em{color:var(--red);font-style:normal;-webkit-text-fill-color:var(--red)}
+.case-card .copy p{font-family:var(--font);font-weight:300;font-size:14.5px;line-height:1.55;color:#A3A3A3;margin:0}
+.case-card .copy .hint{
+  margin-top:auto;display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:#A3A3A3;font-weight:500;
+}
+.case-card .copy .hint .ring{width:22px;height:22px;border:1px solid rgba(255,255,255,.3);border-radius:50%;display:grid;place-items:center;color:#fff;font-size:11px}
+.case-card .copy .actions{display:flex;gap:10px;flex-wrap:wrap}
+.case-card .copy .actions .btn-primary{background:var(--red);border-color:var(--red);padding:10px 16px;font-size:12px}
+.case-card .copy .actions .btn-primary:hover{background:#fff;color:#000;border-color:#fff}
+.case-card .copy .actions .btn-ghost{color:#fff;border-color:rgba(255,255,255,.18);padding:10px 16px;font-size:12px}
+.case-card .copy .actions .btn-ghost:hover{background:#fff;color:#000;border-color:#fff}
+.case-card .scene{position:relative;width:100%;height:100%;z-index:3;overflow:hidden}
+.case-card spline-viewer{width:100%;height:100%;display:block;background:transparent}
+.case-card .scene .watermark-cover{
+  position:absolute;bottom:0;right:0;width:200px;height:62px;background:#000;
+  z-index:5;pointer-events:none;
+  -webkit-mask-image:linear-gradient(135deg,transparent 0%,#000 30%);
+          mask-image:linear-gradient(135deg,transparent 0%,#000 30%);
+}
+.case-card .scene .scene-loader{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font);font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:500;
+}
+.case-card .scene .scene-loader .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--red);margin:0 4px;animation:bounce 1.4s infinite ease-in-out}
+.case-card .scene .scene-loader .dot:nth-child(2){animation-delay:.15s}
+.case-card .scene .scene-loader .dot:nth-child(3){animation-delay:.3s}
+@keyframes bounce{0%,80%,100%{opacity:.3;transform:translateY(0)}40%{opacity:1;transform:translateY(-6px)}}
+.case-card .badge{
+  position:absolute;top:20px;right:20px;z-index:4;
+  font-family:var(--font);font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:#fff;font-weight:600;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);
+  padding:6px 12px;border-radius:999px;backdrop-filter:blur(10px);
+}
+
+/* ============ OFFERINGS ============ */
+.offer{padding:var(--section-y) var(--pad-x);background:var(--paper);border-bottom:1px solid var(--line)}
+.offer .container{max-width:1280px;margin:0 auto}
+.offer .head{text-align:center;margin-bottom:60px}
+.offer .head h2{font-family:var(--font);font-weight:600;font-size:clamp(36px,5vw,76px);letter-spacing:-0.04em;line-height:1;color:var(--ink);margin:14px 0 0;max-width:14ch;margin-left:auto;margin-right:auto}
+.offer .head h2 em{color:var(--red);font-style:normal}
+.offer .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.offer .it{padding:46px 32px;border-right:1px solid var(--line);transition:background .35s;text-align:left}
+.offer .it:nth-child(3n){border-right:0}
+.offer .it:nth-child(4),.offer .it:nth-child(5),.offer .it:nth-child(6){border-top:1px solid var(--line)}
+.offer .it:hover{background:var(--bg)}
+.offer .it .no{font-family:var(--font);font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--red);font-weight:600}
+.offer .it h3{font-family:var(--font);font-weight:600;font-size:23px;letter-spacing:-0.02em;line-height:1.15;margin:18px 0 12px;color:var(--ink)}
+.offer .it h3 em{color:inherit;font-style:normal}
+.offer .it p{font-family:var(--font);font-weight:400;font-size:15px;line-height:1.65;color:var(--ink-3);margin:0;max-width:340px}
+
+/* ============ DSS contact card ============ */
+#dss-contact{padding:var(--section-y) var(--pad-x);background:var(--bg);border-bottom:1px solid var(--line)}
+#dss-contact .container{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+#dss-contact .copy h2{font-family:var(--font);font-weight:600;font-size:clamp(36px,4.6vw,68px);letter-spacing:-0.04em;line-height:1;color:var(--ink);margin:14px 0 22px;max-width:14ch}
+#dss-contact .copy h2 em{color:var(--red);font-style:normal}
+#dss-contact .copy p{font-family:var(--font);font-weight:400;font-size:17.5px;line-height:1.6;color:var(--ink-2);max-width:500px;margin:0}
+#dss-contact .card{
+  background:var(--ink);color:#fff;border-radius:14px;padding:42px 38px;position:relative;overflow:hidden;
+}
+#dss-contact .card .lab{font-family:var(--font);font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--red);margin-bottom:14px;display:block;font-weight:600}
+#dss-contact .card h3{font-family:var(--font);font-weight:600;font-size:32px;letter-spacing:-0.025em;line-height:1;margin:0 0 28px;color:#fff}
+#dss-contact .card h3 em{color:var(--red);font-style:normal}
+#dss-contact .card dl{display:grid;gap:0;margin:0 0 28px}
+#dss-contact .card .r{display:grid;grid-template-columns:100px 1fr;gap:18px;align-items:center;padding:16px 0;border-top:1px solid #2A314E}
+#dss-contact .card .r:first-of-type{border-top:0;padding-top:0}
+#dss-contact .card dt{margin:0;font-family:var(--font);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#A3ABBF;font-weight:600}
+#dss-contact .card dd{margin:0;font-family:var(--font);font-weight:500;font-size:18.5px;letter-spacing:-0.01em;color:#fff;line-height:1.25}
+#dss-contact .card dd a{transition:color .2s}
+#dss-contact .card dd a:hover{color:var(--red)}
+#dss-contact .card .actions{display:flex;gap:10px;flex-wrap:wrap}
+
+.closing{padding:var(--section-y) var(--pad-x);background:#000;color:#fff;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid #1B2540}
+.closing::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 50% 0%,rgba(27,45,107,.32),transparent 70%),radial-gradient(50% 60% at 50% 100%,rgba(224,32,43,.22),transparent 70%);pointer-events:none}
+.closing .container{position:relative;max-width:780px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:26px}
+.closing h2{font-family:var(--font);font-weight:600;font-size:clamp(40px,6vw,98px);letter-spacing:-0.045em;line-height:.98;color:#fff;margin:0}
+.closing h2 em{color:var(--red);font-style:normal}
+.closing p{font-family:var(--font);font-weight:300;font-size:17px;line-height:1.6;color:#A3ABBF;max-width:480px;margin:0}
+.closing .actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+
+@media (max-width:1100px){
+  .offer .grid{grid-template-columns:1fr}
+  .offer .it{border-right:0;border-bottom:1px solid var(--line)}
+  .offer .it:nth-child(4),.offer .it:nth-child(5),.offer .it:nth-child(6){border-top:0}
+  .offer .it:last-child{border-bottom:0}
+  .case-card{height:620px}
+  .case-card .scene{height:100%}
+  #dss-contact .container{grid-template-columns:1fr;gap:30px}
+}
+@media (max-width:680px){
+  .dss-hero{padding:80px var(--pad-x) 56px}
+  .dss-hero .logo-wrap img{height:130px}
+  .dss-hero h1{font-size:clamp(34px,10vw,60px);max-width:18ch}
+  .dss-hero .lead{font-size:16px;margin-top:22px}
+  .dss-hero .actions{width:100%;flex-direction:column;align-items:stretch}
+  .dss-hero .actions .btn{justify-content:center}
+  .dss-manifesto{padding:72px var(--pad-x) 100px}
+  .dss-manifesto .quote{font-size:clamp(22px,5.5vw,30px)}
+  .case-card{height:480px}
+  .case-card .scene{height:100%}
+  .case-card .caption{top:18px;left:18px;font-size:9.5px;padding:7px 12px}
+  .case-card .badge{top:14px;right:14px;font-size:9px;padding:5px 10px}
+  .offer .it{padding:36px 22px}
+  .offer .it h3{font-size:20px}
+  #dss-contact{}
+  #dss-contact .copy h2{font-size:clamp(32px,9vw,52px)}
+  #dss-contact .copy p{font-size:16px}
+  #dss-contact .card{padding:28px 22px}
+  #dss-contact .card h3{font-size:24px}
+  #dss-contact .card .r{grid-template-columns:80px 1fr;gap:12px;padding:14px 0}
+  #dss-contact .card dd{font-size:16px;word-break:break-word}
+  #dss-contact .card .actions{flex-direction:column;align-items:stretch}
+  #dss-contact .card .actions .btn{justify-content:center}
+  .closing h2{font-size:clamp(32px,9vw,56px)}
+  .closing p{font-size:15px}
+  .closing .actions{width:100%;flex-direction:column;align-items:stretch}
+  .closing .actions .btn{justify-content:center}
+}
+
+/* ============ DSS ORBITAL showcase ============ */
+.dss-orbital-section{
+  padding:108px var(--pad-x) 116px;
+  background:#000;color:#fff;border-bottom:0;
+  position:relative;overflow:hidden;
+}
+.dss-orbital-section::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(60% 60% at 50% 0%,rgba(27,45,107,.30),transparent 65%),
+    radial-gradient(60% 60% at 50% 60%,rgba(27,45,107,.18),transparent 70%),
+    radial-gradient(50% 50% at 0% 100%,rgba(224,32,43,.10),transparent 65%);
+}
+.dss-orbital-section .container{position:relative;max-width:1280px;margin:0 auto}
+.orbital-head{text-align:center;margin-bottom:52px}
+.orbital-head .eyebrow{color:#A3ABBF;margin-bottom:18px}
+.orbital-head h2{font-family:var(--font);font-weight:600;font-size:clamp(34px,4.5vw,68px);letter-spacing:-0.04em;line-height:1;color:#fff;margin:0;max-width:22ch;margin-left:auto;margin-right:auto}
+.orbital-head h2 em{color:var(--red);font-style:normal}
+.orbital-head p{font-family:var(--font);font-weight:400;font-size:16.5px;color:#A3ABBF;max-width:600px;margin:22px auto 0;line-height:1.6}
+
+.orbital-card{
+  width:100%;max-width:1100px;margin:0 auto;
+  background:#04060F;border:1px solid #14182A;border-radius:24px;
+  position:relative;overflow:hidden;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.04) inset,
+    0 60px 100px -50px rgba(27,45,107,.40),
+    0 32px 60px -32px rgba(0,0,0,.60);
+}
+.orbital-card::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(224,32,43,.55),rgba(27,45,107,.55),transparent);
+}
+.orbital-card::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(50% 50% at 50% 50%,rgba(27,45,107,.18),transparent 70%);
+}
+
+.orbital-caption{
+  position:absolute;top:22px;left:22px;z-index:30;
+  display:inline-flex;align-items:center;gap:10px;
+  background:rgba(7,10,22,.78);border:1px solid rgba(255,255,255,.10);
+  border-radius:99px;padding:10px 20px;backdrop-filter:blur(12px);
+  font-family:var(--font);font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;color:#E5E3DC;font-weight:600;
+}
+.orbital-caption .pin{width:6px;height:6px;border-radius:50%;background:var(--red);box-shadow:0 0 8px var(--red)}
+
+.orbital-stage{
+  position:relative;
+  width:100%;height:680px;
+  display:flex;align-items:center;justify-content:center;
+}
+.orbital-stage::after{
+  content:"";position:absolute;left:50%;top:50%;
+  width:680px;height:680px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(27,45,107,.18),transparent 60%);
+  pointer-events:none;
+}
+
+.orbital-core{
+  position:absolute;left:50%;top:50%;
+  width:68px;height:68px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  z-index:5;pointer-events:none;
+}
+.orbital-core .orbital-glow{
+  position:absolute;inset:-6px;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);
+}
+.orbital-core .orbital-dot{
+  width:28px;height:28px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#fff,#C7CBD8 70%,#4A5680 100%);
+  box-shadow:0 0 30px rgba(255,255,255,.45), 0 0 60px rgba(27,45,107,.5);
+}
+.orbital-ping{
+  position:absolute;inset:0;border-radius:50%;
+  border:1px solid rgba(255,255,255,.32);
+  animation:orbital-ping 2.6s cubic-bezier(0,0,0.2,1) infinite;
+}
+@keyframes orbital-ping{
+  0%{transform:scale(1);opacity:.7}
+  100%{transform:scale(2.6);opacity:0}
+}
+
+.orbital-ring{
+  position:absolute;left:50%;top:50%;
+  width:460px;height:460px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  border:1px solid rgba(255,255,255,.07);
+  pointer-events:none;
+}
+.orbital-ring::after{
+  content:"";position:absolute;inset:-1px;border-radius:50%;
+  border:1px dashed rgba(224,32,43,.14);
+}
+
+.orbital-node{
+  position:absolute;left:50%;top:50%;
+  background:none;border:0;padding:0;cursor:pointer;
+  transition:opacity .7s cubic-bezier(.2,.7,.2,1);
+  outline:none;
+}
+.orbital-node .marker{
+  width:48px;height:48px;border-radius:50%;
+  background:#0B1023;
+  border:1.5px solid rgba(255,255,255,.36);
+  color:rgba(255,255,255,.85);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .35s cubic-bezier(.2,.7,.2,1), border-color .3s, background .3s, color .3s, box-shadow .35s;
+  position:relative;margin:-24px;
+}
+.orbital-node .marker svg{width:18px;height:18px}
+.orbital-node:hover .marker{
+  transform:scale(1.12);
+  border-color:var(--red);
+  color:#fff;
+  box-shadow:0 0 0 10px rgba(224,32,43,.10);
+}
+.orbital-node.active .marker{
+  background:#fff;color:#0B1023;border-color:#fff;
+  transform:scale(1.38);
+  box-shadow:0 0 28px rgba(255,255,255,.5), 0 0 0 12px rgba(255,255,255,.06);
+}
+.orbital-node:focus-visible .marker{box-shadow:0 0 0 4px rgba(224,32,43,.35)}
+
+.orbital-node .title{
+  position:absolute;top:38px;left:50%;transform:translateX(-50%);
+  white-space:nowrap;
+  font-family:var(--font);
+  font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.65);font-weight:600;
+  transition:color .3s;
+  pointer-events:none;
+}
+.orbital-node:hover .title{color:rgba(255,255,255,.95)}
+.orbital-node.active .title{color:#fff;font-size:13px}
+
+.orbital-node .card{
+  position:absolute;top:82px;left:50%;
+  transform:translateX(-50%) translateY(8px);
+  width:320px;
+  background:rgba(7,10,22,.94);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:16px;
+  padding:24px 26px;
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  opacity:0;pointer-events:none;
+  transition:opacity .4s cubic-bezier(.2,.7,.2,1), transform .4s cubic-bezier(.2,.7,.2,1);
+  text-align:left;z-index:300;
+  box-shadow:0 22px 44px -16px rgba(0,0,0,.65), 0 2px 8px rgba(0,0,0,.35);
+}
+.orbital-node .card::before{
+  content:"";position:absolute;left:50%;top:-1px;
+  transform:translateX(-50%);
+  width:42px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--red),transparent);
+}
+.orbital-node.active .card{
+  opacity:1;pointer-events:auto;
+  transform:translateX(-50%) translateY(0);
+}
+
+.orbital-node .badge{
+  font-family:var(--font);font-size:11.5px;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--red);font-weight:600;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.orbital-node .badge::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--red)}
+.orbital-node h4{
+  font-family:var(--font);font-weight:600;font-size:19px;
+  letter-spacing:-0.02em;color:#fff;margin:12px 0 10px;line-height:1.2;
+}
+.orbital-node .desc{
+  font-family:var(--font);font-weight:400;font-size:14.5px;
+  color:rgba(255,255,255,.78);line-height:1.6;margin:0;
+}
+@media (max-width:1100px){
+  .orbital-stage{height:600px}
+  .orbital-ring{width:380px;height:380px}
+}
+@media (max-width:680px){
+  .orbital-stage{height:520px}
+  .orbital-ring{width:260px;height:260px}
+  .orbital-node .marker{width:42px;height:42px;margin:-21px}
+  .orbital-node .marker svg{width:16px;height:16px}
+  .orbital-node .title{top:30px;font-size:10px;letter-spacing:.16em}
+  .orbital-node.active .title{font-size:10.5px}
+  .orbital-node .card{width:min(240px, calc(100vw - 56px));padding:16px 18px;top:64px}
+  .orbital-node h4{font-size:15px;margin:8px 0 8px}
+  .orbital-node .desc{font-size:12.5px;line-height:1.55}
+  .orbital-node .badge{font-size:10px;letter-spacing:.18em}
+  .orbital-caption{font-size:9.5px;letter-spacing:.22em;padding:6px 12px;top:14px;left:14px}
+  .orbital-head h2{font-size:clamp(28px,8vw,40px)}
+  .orbital-head p{font-size:14.5px}
+  .orbital-card{border-radius:18px}
+}
+@media (max-width:480px){
+  .dss-orbital-section{padding:48px var(--pad-x) 72px}
+  .orbital-stage{height:460px}
+  .orbital-ring{width:220px;height:220px}
+  .orbital-node .card{top:56px;width:min(220px, calc(100vw - 48px))}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="row">
+    <a href="index.html" class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <span class="wm">
+        <span class="nm">konsulencë ar<em class="nv">G</em><em>E</em>ar</span>
+        <span class="sub" data-i18n="header.brandSub">Shkodër · 2015</span>
+      </span>
+    </a>
+    <nav>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="rreth.html" data-i18n="nav.about">Rreth Nesh</a>
+      <a href="sherbime.html" data-i18n="nav.services">Shërbime</a>
+      <a href="pse-ne.html" data-i18n="nav.why">Pse Ne</a>
+      <a href="dss.html" aria-current="page" data-i18n="nav.dss">DSS</a>
+      <a href="kalkulator.html" data-i18n="nav.calc">Kalkulator</a>
+      <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
+    </nav>
+    <div class="actions">
+      <div class="lang-mobile" data-lang-mobile>
+        <button type="button" class="lang-mobile-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="Choose language">
+          <span class="cur">SQ</span>
+          <svg class="chev" viewBox="0 0 12 12" aria-hidden="true" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-mobile-menu" role="menu" hidden>
+          <button data-lang="sq" role="menuitem"><span>SQ</span><span class="check">✓</span></button>
+          <button data-lang="en" role="menuitem"><span>EN</span><span class="check">✓</span></button>
+          <button data-lang="it" role="menuitem"><span>IT</span><span class="check">✓</span></button>
+          <button data-lang="de" role="menuitem"><span>DE</span><span class="check">✓</span></button>
+          <button data-lang="es" role="menuitem"><span>ES</span><span class="check">✓</span></button>
+        </div>
+      </div>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button data-lang="sq" aria-pressed="true">SQ</button>
+        <button data-lang="en" aria-pressed="false">EN</button>
+        <button data-lang="it" aria-pressed="false">IT</button>
+        <button data-lang="de" aria-pressed="false">DE</button>
+        <button data-lang="es" aria-pressed="false">ES</button>
+      </div>
+      <a class="btn btn-primary" href="kontakt.html"><span data-i18n="header.ctaContact">Na Shkruaj</span> <span class="arrow">→</span></a>
+    </div>
+    <button class="menu-toggle" aria-label="Hap menunë" data-i18n-aria="header.menuToggle" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-drawer" aria-hidden="true">
+  <nav>
+    <a href="index.html" data-i18n="nav.home">Home</a>
+    <a href="rreth.html" data-i18n="nav.about">Rreth Nesh</a>
+    <a href="sherbime.html" data-i18n="nav.services">Shërbime</a>
+    <a href="pse-ne.html" data-i18n="nav.why">Pse Ne</a>
+    <a href="dss.html" data-i18n="nav.dss">DSS</a>
+    <a href="kalkulator.html" data-i18n="nav.calc">Kalkulator</a>
+    <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
+  </nav>
+  <div class="info">
+    <a href="https://wa.me/355686555262" target="_blank" rel="noopener noreferrer">+355 68 655 5262</a>
+    <a href="mailto:argear_konsulence@yahoo.it">argear_konsulence@yahoo.it</a>
+    <span>Rruga Mbreti Gent · Shkodër</span>
+  </div>
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button data-lang="sq" aria-pressed="true">SQ</button>
+    <button data-lang="en" aria-pressed="false">EN</button>
+    <button data-lang="it" aria-pressed="false">IT</button>
+    <button data-lang="de" aria-pressed="false">DE</button>
+    <button data-lang="es" aria-pressed="false">ES</button>
+  </div>
+</div>
+
+<section class="dss-hero">
+  <div class="crumbs"><a href="index.html" data-i18n="nav.home">Home</a><span class="sep">→</span><span data-i18n="dss.crumb">DSS</span></div>
+  <div class="logo-wrap">
+    <img src="assets/logo-software.jpeg" alt="DSS — Department of Software Solutions @ konsulencë arGEar">
+  </div>
+  <h1 data-i18n-html="dss.hero.h1">Software për <em>ju</em><br/></h1>
+  <p class="lead" data-i18n="dss.hero.lead">Departamenti i zgjidhjeve digjitale dhe software te konsulencë arGEar</p>
+  <div class="actions">
+    <a class="btn btn-primary" href="#dss-contact"><span data-i18n="btn.discussProject">Diskuto një projekt</span> <span class="arrow">→</span></a>
+    <a class="btn btn-ghost" href="#offer" data-i18n="btn.services">Shërbimet</a>
+  </div>
+</section>
+
+<!-- ===== Passion manifesto ===== -->
+<section class="dss-manifesto">
+  <div class="container reveal">
+    <p class="quote" data-i18n-html="dss.manifesto.q">Ne jemi <em>të apasionuar</em> pas programimit dhe e bëjmë atë të prekshëm.</p>
+    <p class="sub" data-i18n="dss.manifesto.sub">DSS · Department of Software Solutions</p>
+  </div>
+</section>
+
+<!-- ============ DSS ORBITAL showcase ============ -->
+<section class="dss-orbital-section" id="orbital-section">
+  <div class="container">
+    <div class="orbital-head">
+      <span class="eyebrow"><span class="ln"></span><span data-i18n="dss.orbital.eyebrow">Çfarë ndërton DSS</span></span>
+      <h2 data-i18n-html="dss.orbital.h2">Shërbimet <em>tona.</em></h2>
+      <p></p>
+    </div>
+
+    <div class="orbital-card">
+      <span class="orbital-caption"><span class="pin"></span><span data-i18n="dss.orbital.caption">klikoni një pikë për të parë detajet</span></span>
+      <div class="orbital-stage" id="orbital">
+        <div class="orbital-ring" aria-hidden="true"></div>
+        <div class="orbital-core" aria-hidden="true">
+          <span class="orbital-glow"></span>
+          <span class="orbital-ping"></span>
+          <span class="orbital-dot"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Showcase with Aceternity ContainerScroll ===== -->
+<section class="showcase">
+  <div class="container">
+    <div class="cs-stage" id="cs-stage">
+      <div class="cs-header" id="cs-header">
+        <span class="eyebrow"><span class="ln"></span><span data-i18n="dss.showcase.eyebrow">Punë e ndërtuar nga DSS</span></span>
+        <h2 data-i18n-html="dss.showcase.h2">Software që mund <em>ta prekësh.</em></h2>
+        <p data-i18n="dss.showcase.p">Lëvizni kursorin mbi figurën. Softueri ynë është diçka që ndihet.</p>
+      </div>
+
+      <div class="cs-card" id="cs-card">
+        <div class="cs-card-inner">
+          <article class="case-card" id="case-card">
+            <div class="spotlight" aria-hidden="true"></div>
+            <div class="pointer-glow" aria-hidden="true"></div>
+
+            <span class="caption"><span class="pin"></span><span data-i18n="dss.showcase.caseCaption">një nga projektet tona 3d interaktive</span></span>
+
+            <div class="scene">
+              <div class="scene-loader" id="scene-loader" aria-hidden="true">
+                <span data-i18n="dss.showcase.loader">Po ngarkohet</span>
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              </div>
+              <spline-viewer
+                loading-anim
+                url="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                events-target="global">
+              </spline-viewer>
+              <div class="watermark-cover" aria-hidden="true"></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OFFERINGS ============ -->
+<section class="offer" id="offer">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow"><span class="ln"></span><span data-i18n="dss.offer.eyebrow">Linja DSS</span></span>
+      <h2 data-i18n-html="dss.offer.h2">Çfarë <em>ndërtojmë</em><br/>për biznesin tuaj.</h2>
+    </div>
+    <div class="grid">
+      <article class="it reveal"><div class="no">§ 01</div><h3 data-i18n-html="dss.offer.i1.h3">Web &amp; <em>aplikacione</em></h3><p data-i18n="dss.offer.i1.p">Website, portale, dashboardë, aplikacione — sipas nevojave tuaja.</p></article>
+      <article class="it reveal reveal-delay-1"><div class="no">§ 02</div><h3 data-i18n-html="dss.offer.i2.h3">Raporte &amp; <em>Dashboard</em></h3><p data-i18n="dss.offer.i2.p">Të dhëna live nga libri, banka dhe e‑faturat — për administratorin.</p></article>
+      <article class="it reveal reveal-delay-2"><div class="no">§ 03</div><h3 data-i18n="dss.offer.i3.h3">e‑Banking automatik</h3><p data-i18n-html="dss.offer.i3.p">Pagesa periodike pa dorë. Konfirmime &amp; rakordim ndaj librit.</p></article>
+      <article class="it reveal"><div class="no">§ 04</div><h3 data-i18n-html="dss.offer.i4.h3">E‑commerce <em>stores</em></h3><p data-i18n="dss.offer.i4.p">Dyqane online të integruara me arkën, stokun dhe faturën fiskale. Nga produkti tek pagesa.</p></article>
+      <article class="it reveal reveal-delay-1"><div class="no">§ 05</div><h3 data-i18n-html="dss.offer.i5.h3">Integrime &amp; API</h3><p data-i18n="dss.offer.i5.p">Sisteme që flasin: ERP, kasë, bankë, raportim — një burim i vetëm.</p></article>
+      <article class="it reveal reveal-delay-2"><div class="no">§ 06</div><h3 data-i18n-html="dss.offer.i6.h3">Siguria e <em>dosjes</em></h3><p data-i18n="dss.offer.i6.p">Backup, akses me role, kriptim AES‑256, pajtueshmëri GDPR.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DSS direct contact ============ -->
+<section class="dss-contact" id="dss-contact">
+  <div class="container">
+    <div class="copy reveal">
+      <span class="eyebrow"><span class="ln"></span><span data-i18n="dss.contact.eyebrow">Kontakti DSS</span></span>
+      <h2 data-i18n-html="dss.contact.h2">Shkruani <em>drejtpërdrejt</em> ekipit të kodit.</h2>
+      <p data-i18n="dss.contact.p">DSS ka linjën e vet të kontaktit. Ekipi i softuerit ju kthen përgjigje brenda 24 orësh — për një ofertë, një ide, ose vetëm një bisedë teknike.</p>
+    </div>
+    <div class="card reveal reveal-delay-1">
+      <span class="lab" data-i18n="dss.contact.cardLab">Department of Software Solutions</span>
+      <h3 data-i18n-html="dss.contact.cardH3">DSS <em>@</em> arGEar</h3>
+      <dl>
+        <div class="r"><dt data-i18n="dss.contact.rEmail">E‑mail</dt><dd><a href="mailto:dss.argear@gmail.com">dss.argear@gmail.com</a></dd></div>
+        <div class="r"><dt data-i18n="dss.contact.rPhone">Telefon</dt><dd><a href="https://wa.me/355694341434" target="_blank" rel="noopener noreferrer">+355 69 434 1 434</a></dd></div>
+        <div class="r"><dt data-i18n="dss.contact.rBased">Bazuar</dt><dd data-i18n="dss.contact.based.v">Shkodër · Albania</dd></div>
+      </dl>
+      <div class="actions">
+        <a class="btn btn-on-dark" href="mailto:dss.argear@gmail.com" data-i18n="btn.writeDss">Shkruaj DSS</a>
+        <a class="btn btn-ghost-light" href="https://wa.me/355694341434" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="container">
+    <h2 data-i18n-html="dss.closing.h2">Një ide <em>softueri?</em><br/>Diskutojmë.</h2>
+    <p data-i18n="dss.closing.p">Bashkë me kontabilistët, jo veçmas. DSS dhe arGEar punojnë në të njëjtën tavolinë.</p>
+    <div class="actions">
+      <a class="btn btn-on-dark" href="#dss-contact"><span data-i18n="btn.bookMeeting">Cakto takimin</span> <span class="arrow">→</span></a>
+      <a class="btn btn-ghost-light" href="sherbime.html" data-i18n="btn.argearServices">Shërbimet arGEar</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="top">
+    <div class="brand">
+      <div class="mark-row">
+        <span class="mark" aria-hidden="true"></span>
+        <span class="wm">konsulencë ar<em class="nv">G</em><em>E</em>ar</span>
+      </div>
+      <p class="tagline">Department of Software Solutions<br/>@ konsulencë arGEar · Shkodër</p>
+      <div class="socials">
+        <a href="https://www.linkedin.com/company/konsulencë-argear/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.22 0z"/></svg></a>
+        <a href="https://www.facebook.com/argearok" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12c0-6.63-5.37-12-12-12S0 5.37 0 12c0 5.99 4.39 10.95 10.13 11.85v-8.38H7.08V12h3.05V9.35c0-3.01 1.79-4.67 4.53-4.67 1.31 0 2.69.23 2.69.23v2.96h-1.51c-1.49 0-1.95.92-1.95 1.87V12h3.33l-.53 3.47h-2.8v8.38C19.61 22.95 24 17.99 24 12z"/></svg></a>
+        <a href="https://www.instagram.com/konsulence_argear?igsh=MWgzdnVxbm4xMHl1eg==" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.47.72-2.13 1.38C1.35 2.67.94 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.47 1.38 2.13.66.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.47-.72 2.13-1.38.66-.66 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.47-1.38-2.13C21.33 1.35 20.66.94 19.86.63 19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 12 8a4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a>
+      </div>
+    </div>
+    <div class="col"><h5 data-i18n="footer.pages">Faqet</h5><ul>
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li><li><a href="rreth.html" data-i18n="nav.about">Rreth Nesh</a></li><li><a href="sherbime.html" data-i18n="nav.services">Shërbime</a></li><li><a href="pse-ne.html" data-i18n="nav.why">Pse Ne</a></li><li><a href="dss.html" data-i18n="nav.dss">DSS</a></li><li><a href="kalkulator.html" data-i18n="nav.calc">Kalkulator</a></li><li><a href="kontakt.html" data-i18n="nav.contact">Kontakt</a></li>
+    </ul></div>
+    <div class="col"><h5>Linja DSS</h5><ul>
+      <li><a href="#offer">Web &amp; aplikacione</a></li><li><a href="#offer">Raporte &amp; Dashboard</a></li><li><a href="#offer">e‑Banking</a></li><li><a href="#offer">E‑commerce stores</a></li><li><a href="#offer">Integrime &amp; API</a></li>
+    </ul></div>
+    <div class="col">
+      <h5 data-i18n="footer.contact">Kontakt</h5>
+      <ul>
+        <li><a href="https://wa.me/355686555262" target="_blank" rel="noopener noreferrer">+355 68 655 5262</a></li>
+        <li><a href="mailto:argear_konsulence@yahoo.it">argear_konsulence@yahoo.it</a></li>
+        <li><span>Rruga Mbreti Gent</span></li>
+        <li><span>Shkodër · Albania</span></li>
+      </ul>
+      <div class="dss-contact">
+        <span class="lab" data-i18n="footer.dssLabel">DSS · Software</span>
+        <a href="mailto:dss.argear@gmail.com">dss.argear@gmail.com</a>
+        <a href="https://wa.me/355694341434" target="_blank" rel="noopener noreferrer">+355 69 434 1 434</a>
+      </div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div>© 2026 DSS @ konsulencë ar<em class="nv">G</em><em>E</em>ar</div>
+    <div class="center" data-i18n-html="footer.setIn">Set in <em>Archivo</em></div>
+    <div class="right" data-i18n="footer.cityCountry">Shkodër · Albania</div>
+  </div>
+</footer>
+
+<script>
+  // ===== reveal-on-scroll =====
+  (function(){
+    const items = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){items.forEach(i=>i.classList.add('in-view'));return;}
+    const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'-40px 0px'});
+    items.forEach(i=>io.observe(i));
+  })();
+
+  // ===== pointer glow on case card =====
+  (function(){const card=document.getElementById('case-card');if(!card)return;const glow=card.querySelector('.pointer-glow');card.addEventListener('pointermove',(e)=>{const r=card.getBoundingClientRect();glow.style.transform=`translate3d(${e.clientX-r.left-140}px,${e.clientY-r.top-140}px,0)`;});})();
+
+  // ===== Spline loader hide =====
+  (function(){const v=document.querySelector('spline-viewer');const l=document.getElementById('scene-loader');if(!v||!l)return;const hide=()=>l.style.display='none';v.addEventListener('load',hide);v.addEventListener('load-complete',hide);setTimeout(hide,8000);})();
+
+  // ===== DSS Orbital Showcase =====
+  (function(){
+    const stage = document.getElementById('orbital');
+    if(!stage) return;
+
+    function tr(k){ return (window.i18n && window.i18n.t) ? (window.i18n.t(k) || '') : ''; }
+    const data = [
+      {id:1, key:'dss.n1', icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>'},
+      {id:2, key:'dss.n2', icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h2l2.4 12.2a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>'},
+      {id:3, key:'dss.n3', icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>'},
+      {id:4, key:'dss.n4', icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>'},
+      {id:5, key:'dss.n5', icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2"/><path d="M12 18h.01"/></svg>'},
+      {id:6, key:'dss.n6', icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="11.49"/></svg>'},
+      {id:7, key:'dss.n7', icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0 0-9h-1.8A7 7 0 1 0 9 19h8.5"/></svg>'},
+      {id:8, key:'dss.n8', icon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>'}
+    ];
+    data.forEach(d => { d.title = tr(d.key+'.title'); d.badge = tr(d.key+'.badge'); d.desc = tr(d.key+'.desc'); });
+
+    let rotation = 0;
+    let targetRotation = 0;
+    let autoRotate = true;
+    let activeId = null;
+    let radius = 220;
+    const AUTO_SPEED = 0.14;
+    const EASE = 0.055;
+
+    function calcRadius(){
+      const ring = stage.querySelector('.orbital-ring');
+      if(ring) radius = ring.offsetWidth / 2;
+    }
+
+    // pick the equivalent of `target` that's nearest to `current` so easing takes the short path
+    function nearestEquivalent(current, target){
+      let x = target;
+      while(x - current > 180) x -= 360;
+      while(x - current < -180) x += 360;
+      return x;
+    }
+
+    const nodes = data.map((item, i) => {
+      const node = document.createElement('button');
+      node.className = 'orbital-node';
+      node.type = 'button';
+      node.setAttribute('aria-label', item.title);
+      node.dataset.id = item.id;
+      node.innerHTML =
+        '<span class="marker">' + item.icon + '</span>' +
+        '<span class="title">' + item.title + '</span>' +
+        '<div class="card">' +
+          '<div class="badge">' + item.badge + '</div>' +
+          '<h4>' + item.title + '</h4>' +
+          '<p class="desc">' + item.desc + '</p>' +
+        '</div>';
+      node.addEventListener('click', function(e){
+        e.stopPropagation();
+        if(activeId === item.id){
+          activeId = null;
+          autoRotate = true;
+          targetRotation = rotation;
+        } else {
+          activeId = item.id;
+          autoRotate = false;
+          const want = 270 - (i / data.length) * 360;
+          targetRotation = nearestEquivalent(rotation, want);
+        }
+      });
+      stage.appendChild(node);
+      return { el: node, index: i };
+    });
+
+    // Re-render orbital node text when language changes
+    window.addEventListener('i18n:changed', function(){
+      data.forEach((d,i) => {
+        d.title = tr(d.key+'.title'); d.badge = tr(d.key+'.badge'); d.desc = tr(d.key+'.desc');
+        const el = nodes[i].el;
+        el.setAttribute('aria-label', d.title);
+        const titleEl = el.querySelector('.title'); if(titleEl) titleEl.textContent = d.title;
+        const badgeEl = el.querySelector('.badge'); if(badgeEl) badgeEl.textContent = d.badge;
+        const h4 = el.querySelector('h4'); if(h4) h4.textContent = d.title;
+        const descEl = el.querySelector('.desc'); if(descEl) descEl.textContent = d.desc;
+      });
+    });
+
+    function updateNodes(){
+      nodes.forEach(function(n){
+        const angle = ((n.index / data.length) * 360 + rotation) % 360;
+        const radian = angle * Math.PI / 180;
+        const x = radius * Math.cos(radian);
+        const y = radius * Math.sin(radian);
+        const opacity = Math.max(.35, .45 + .55 * ((1 + Math.sin(radian))/2));
+        const zIndex = Math.round(50 + 50 * Math.cos(radian));
+        const isActive = activeId === data[n.index].id;
+        n.el.style.transform = 'translate(calc(-50% + ' + x + 'px), calc(-50% + ' + y + 'px))';
+        n.el.style.opacity = isActive ? 1 : opacity;
+        n.el.style.zIndex = isActive ? 250 : zIndex;
+        n.el.classList.toggle('active', isActive);
+      });
+    }
+
+    function tick(){
+      if(autoRotate){
+        rotation += AUTO_SPEED;
+        targetRotation = rotation;
+      } else {
+        const diff = targetRotation - rotation;
+        if(Math.abs(diff) > 0.05){
+          rotation += diff * EASE;
+        } else {
+          rotation = targetRotation;
+        }
+      }
+      updateNodes();
+      requestAnimationFrame(tick);
+    }
+
+    stage.addEventListener('click', function(e){
+      if(e.target === stage || e.target.classList.contains('orbital-ring') || e.target.classList.contains('orbital-core')){
+        activeId = null;
+        autoRotate = true;
+        targetRotation = rotation;
+      }
+    });
+
+    calcRadius();
+    window.addEventListener('resize', function(){ calcRadius(); updateNodes(); });
+    tick();
+  })();
+
+  // ===== mobile drawer =====
+  (function(){const btn=document.querySelector('.menu-toggle');const drawer=document.querySelector('.mobile-drawer');if(!btn||!drawer)return;btn.addEventListener('click',()=>{const o=drawer.classList.toggle('open');btn.classList.toggle('open',o);btn.setAttribute('aria-expanded',String(o));drawer.setAttribute('aria-hidden',String(!o));document.body.style.overflow=o?'hidden':'';});drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{drawer.classList.remove('open');btn.classList.remove('open');document.body.style.overflow='';}));})();
+</script>
+
+<a class="wa-fab" href="https://wa.me/355694341434" target="_blank" rel="noopener noreferrer" aria-label="Bisedo me DSS në WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.298A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/></svg>
+  <span class="tip">Bisedo me DSS</span>
+</a>
+<script src="assets/i18n.js" defer></script>
+</body>
+</html>
