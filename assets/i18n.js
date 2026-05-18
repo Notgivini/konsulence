@@ -27,7 +27,7 @@
       'home.hero.badge':'Që nga 6 janar · 2015','home.hero.h1':'Bilanci i <em>besimit.</em>',
       'home.hero.tagline':'Konsulencë, kontabilitet, përfaqësim tatimor, ndërtime Website / Aplikacione dhe zgjidhje digjitale — për biznesin tuaj.',
       'home.transform.eyebrow':'Transformim','home.transform.h2':'Nga <span class="lt">letra,</span><br/>drejt <em>cloud‑it.</em>',
-      'home.transform.tagline':'Që nga viti 2021 pördorim mbi pesë platforma fiskale të miratuara nga Drejtoria e Tatimeve.',
+      'home.transform.tagline':'Që nga viti 2021 përdorim mbi pesë platforma fiskale të miratuara nga Drejtoria e Tatimeve.',
       'home.transform.meta1':'<b>2015</b> Themelimi','home.transform.meta2':'<b>2021</b> Cloud','home.transform.meta3':'<b>2026</b> Sot',
       'home.intro.eyebrow':'Rreth Nesh','home.intro.h2':'Një firmë e vogël<br/>me <em>kujtesë</em> të gjatë.',
       'home.intro.p':'Themeluar nga Gilber Hysaj në Shkodër, më 6 janar 2015. Sot, dhjetë vjet më vonë, klientët tanë të parë janë akoma klientët tanë — dhe një rrjet biznesesh shqiptare e të huaja u shtua rreth tyre.',
