@@ -30,9 +30,8 @@
 .dss-hero .crumbs a{color:var(--mute)} .dss-hero .crumbs .sep{color:var(--red)}
 .dss-hero .logo-wrap{display:flex;justify-content:center;margin-bottom:38px}
 .dss-hero .logo-wrap img{
-  width:auto;height:clamp(160px,19vw,232px);
-  filter:drop-shadow(0 30px 60px rgba(16,22,38,.15));
-  mix-blend-mode:multiply;
+  width:auto;height:clamp(150px,18vw,216px);max-width:100%;
+  filter:drop-shadow(0 16px 40px rgba(27,45,107,.16));
 }
 .dss-hero h1{font-family:var(--font);font-weight:600;font-size:clamp(42px,6.4vw,108px);line-height:.96;letter-spacing:-0.05em;color:var(--ink);margin:0;max-width:18ch;margin-left:auto;margin-right:auto}
 .dss-hero h1 em{color:var(--red);font-style:normal}
@@ -499,7 +498,7 @@
 <section class="dss-hero">
   <div class="crumbs"><a href="index.html" data-i18n="nav.home">Home</a><span class="sep">→</span><span data-i18n="dss.crumb">DSS</span></div>
   <div class="logo-wrap">
-    <img src="assets/logo-software.jpeg" alt="DSS — Department of Software Solutions @ konsulencë arGEar">
+    <img src="assets/logo-software.png" alt="DSS — Department of Software Solutions @ konsulencë arGEar">
   </div>
   <h1 data-i18n-html="dss.hero.h1">Software për <em>ju</em><br/></h1>
   <p class="lead" data-i18n="dss.hero.lead">Departamenti i zgjidhjeve digjitale dhe software pranë konsulencë arGEar</p>
@@ -689,12 +688,13 @@
     const l=document.getElementById('scene-loader');
     if(!v)return;
     const hide=()=>{if(l)l.style.display='none';};
-    // Spline injects a "Built with Spline" logo link into the shadow root after the scene mounts — remove it.
-    const killLogo=()=>{try{const a=v.shadowRoot&&v.shadowRoot.querySelector('#logo');if(a)a.remove();}catch(e){}};
+    // Spline injects a "Built with Spline" logo link into the shadow root after the scene mounts.
+    // Hide it (do NOT remove it — Spline's onLoaded handler reads logo.style and throws if it's gone).
+    const killLogo=()=>{try{const a=v.shadowRoot&&v.shadowRoot.querySelector('#logo');if(a){a.style.setProperty('display','none','important');a.style.setProperty('opacity','0','important');a.style.setProperty('pointer-events','none','important');}}catch(e){}};
     v.addEventListener('load',()=>{hide();killLogo();});
     v.addEventListener('load-complete',()=>{hide();killLogo();});
     setTimeout(hide,8000);
-    let n=0;const t=setInterval(()=>{killLogo();if(++n>20)clearInterval(t);},500);
+    let n=0;const t=setInterval(()=>{killLogo();if(++n>30)clearInterval(t);},400);
   })();
 
   // ===== DSS Orbital Showcase =====
