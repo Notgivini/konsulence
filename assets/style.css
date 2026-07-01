@@ -20,7 +20,7 @@
   --ink:#101626;
   --ink-2:#1F2740;
   --ink-3:#3A4258;
-  --mute:#6B7384;
+  --mute:#5A6376;
   --mute-2:#9098A8;
   --line:#E1DDD0;
   --line-2:#CFC8B5;
@@ -59,6 +59,10 @@ input,textarea,select{font-size:16px}  /* prevent iOS zoom on focus */
 
 h1,h2,h3,h4,h5{font-family:var(--font);font-weight:600;letter-spacing:-0.025em;line-height:1.02;margin:0;color:var(--ink)}
 p{margin:0}
+
+/* Global keyboard focus ring — zero-specificity :where() so the components that
+   already define :focus-visible (lang-switch, lang-mobile-toggle, wa-fab) win */
+:where(a,button,input,select,textarea,[tabindex]):focus-visible{outline:2px solid var(--red);outline-offset:2px;border-radius:4px}
 
 /* italic accent — uses Archivo italic, light weight for elegance */
 .ital{font-style:italic;font-weight:300;letter-spacing:-0.005em}
@@ -371,7 +375,7 @@ p{margin:0}
 .site-footer .top .brand .tagline{
   font-family:var(--font);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#A3ABBF;line-height:1.7;font-weight:500;
 }
-.site-footer h5{font-family:var(--font);font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--red);margin:0 0 20px;font-weight:600}
+.site-footer .col-title{font-family:var(--font);font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--red);margin:0 0 20px;font-weight:600}
 .site-footer .col ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .site-footer .col a,.site-footer .col span{font-family:var(--font);font-size:15px;color:#C7CBD8;transition:color .25s;font-weight:400}
 .site-footer .col a:hover{color:#fff}
@@ -489,7 +493,7 @@ p{margin:0}
   .btn{padding:12px 18px;font-size:13px}
   .mobile-drawer nav a{font-size:24px;padding:12px 0}
   .site-footer{padding:48px var(--pad-x) 24px}
-  .site-footer h5{margin-bottom:14px}
+  .site-footer .col-title{margin-bottom:14px}
   .site-footer .col ul{gap:10px}
 }
 
@@ -549,6 +553,9 @@ p{margin:0}
 }
 .wa-fab:hover .tip,.wa-fab:focus-visible .tip{opacity:1;transform:translateY(-50%) translateX(0)}
 @media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .hero-video-section .hero-content .badge .pin::after{animation:none!important}
   .wa-fab::before{animation:none}
   .wa-fab,.wa-fab:hover,.wa-fab:active{transition:none;transform:none}
 }
