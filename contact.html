@@ -76,9 +76,9 @@
 .info-card h3{font-family:var(--font);font-weight:600;font-size:30px;letter-spacing:-0.025em;line-height:1;margin:0 0 28px;color:#fff}
 .info-card h3 em{color:var(--red);font-style:normal}
 .info-card dl{display:grid;gap:0;margin:0}
-.info-card .r{display:grid;grid-template-columns:100px 1fr;gap:18px;align-items:center;padding:18px 0;border-top:1px solid #2A314E}
+.info-card .r{display:grid;grid-template-columns:100px 1fr;gap:18px;align-items:start;padding:18px 0;border-top:1px solid #2A314E}
 .info-card .r:first-of-type{border-top:0;padding-top:0}
-.info-card dt{margin:0;font-family:var(--font);font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#A3ABBF;font-weight:600}
+.info-card dt{margin:0;font-family:var(--font);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#A3ABBF;font-weight:600;overflow-wrap:anywhere;padding-top:3px}
 .info-card dd{margin:0;font-family:var(--font);font-weight:500;font-size:18px;letter-spacing:-0.01em;color:#fff;line-height:1.25}
 .info-card dd a{transition:color .25s}
 .info-card dd a:hover{color:var(--red)}
@@ -106,7 +106,8 @@
   .contact-body .form-side h2{font-size:30px}
   .info-card,.hours-card{padding:24px}
   .info-card h3{font-size:24px}
-  .info-card .r{grid-template-columns:80px 1fr;gap:12px;padding:14px 0}
+  .info-card .r{grid-template-columns:1fr;gap:5px;padding:14px 0}
+  .info-card dt{padding-top:0}
   .info-card dd{font-size:16px;word-break:break-word}
   .info-card .actions{flex-direction:column;align-items:stretch}
   .info-card .actions .btn{justify-content:center}
@@ -117,7 +118,7 @@
   .form .submit-row .btn{justify-content:center}
 }
 @media (max-width:480px){
-  .info-card .r{grid-template-columns:64px 1fr;gap:10px}
+  .info-card .r{grid-template-columns:1fr;gap:4px}
   .info-card dt{font-size:10.5px;letter-spacing:.2em}
   .info-card dd{font-size:14.5px}
   .info-card dd a{font-size:14.5px}

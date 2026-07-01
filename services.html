@@ -41,6 +41,9 @@
 .svc-detail .copy p{font-family:var(--font);font-weight:400;font-size:17.5px;line-height:1.65;color:var(--ink-2);margin:0;max-width:640px}
 .svc-detail .copy .tags{margin-top:30px;display:flex;flex-wrap:wrap;gap:8px}
 .svc-detail .copy .tags span{font-family:var(--font);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--line-2);padding:8px 14px;border-radius:999px;background:transparent;font-weight:600}
+.svc-detail .copy .actions{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap}
+.svc-detail.dss-svc{background:var(--paper)}
+.svc-detail.dss-svc .meta .no{color:var(--red)}
 
 .fiscal-row{padding:80px var(--pad-x);background:var(--ink);color:#fff;text-align:center;border-bottom:1px solid var(--ink-2)}
 .fiscal-row .lab{font-family:var(--font);font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--red);margin-bottom:30px;display:inline-block;font-weight:600}
@@ -242,6 +245,19 @@
     <span>S<em>CONNECT</em></span>
   </div>
   <div class="sub" data-i18n="services.fiscal.sub">Pesë platforma cloud të licencuara nga Administrata Tatimore.</div>
+</section>
+
+<section class="svc-detail dss-svc" id="dss">
+  <div class="container">
+    <div class="meta"><div class="no">→</div><div class="of">Software</div></div>
+    <div class="copy">
+      <h2>DSS · <em>Software.</em></h2>
+      <p data-i18n="services.dss.p">Departamenti i Zgjidhjeve Digjitale dhe Software: website, aplikacione, dyqane online, menu digjitale me QR, sisteme rezervimi dhe profile Google Maps të optimizuara.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="software.html"><span data-i18n="btn.visitDss">Vizito DSS</span> <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="closing">
