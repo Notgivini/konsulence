@@ -114,7 +114,7 @@
 .case-card spline-viewer{width:100%;height:100%;display:block;background:transparent}
 .case-card .scene .watermark-cover{
   position:absolute;bottom:0;right:0;width:200px;height:62px;background:#000;
-  z-index:5;pointer-events:none;
+  z-index:5;pointer-events:auto;
   -webkit-mask-image:linear-gradient(135deg,transparent 0%,#000 30%);
           mask-image:linear-gradient(135deg,transparent 0%,#000 30%);
 }
@@ -622,7 +622,6 @@
 <section class="closing">
   <div class="container">
     <h2 data-i18n-html="dss.closing.h2">Një ide <em>softueri?</em><br/>Diskutojmë.</h2>
-    <p data-i18n="dss.closing.p">Bashkë me kontabilistët, jo veçmas. DSS dhe arGEar punojnë në të njëjtën tavolinë.</p>
     <div class="actions">
       <a class="btn btn-on-dark" href="#dss-contact"><span data-i18n="btn.bookMeeting">Cakto takimin</span> <span class="arrow">→</span></a>
       <a class="btn btn-ghost-light" href="services.html" data-i18n="btn.argearServices">Shërbimet arGEar</a>
@@ -685,7 +684,18 @@
   (function(){const card=document.getElementById('case-card');if(!card)return;const glow=card.querySelector('.pointer-glow');card.addEventListener('pointermove',(e)=>{const r=card.getBoundingClientRect();glow.style.transform=`translate3d(${e.clientX-r.left-140}px,${e.clientY-r.top-140}px,0)`;});})();
 
   // ===== Spline loader hide =====
-  (function(){const v=document.querySelector('spline-viewer');const l=document.getElementById('scene-loader');if(!v||!l)return;const hide=()=>l.style.display='none';v.addEventListener('load',hide);v.addEventListener('load-complete',hide);setTimeout(hide,8000);})();
+  (function(){
+    const v=document.querySelector('spline-viewer');
+    const l=document.getElementById('scene-loader');
+    if(!v)return;
+    const hide=()=>{if(l)l.style.display='none';};
+    // Spline injects a "Built with Spline" logo link into the shadow root after the scene mounts — remove it.
+    const killLogo=()=>{try{const a=v.shadowRoot&&v.shadowRoot.querySelector('#logo');if(a)a.remove();}catch(e){}};
+    v.addEventListener('load',()=>{hide();killLogo();});
+    v.addEventListener('load-complete',()=>{hide();killLogo();});
+    setTimeout(hide,8000);
+    let n=0;const t=setInterval(()=>{killLogo();if(++n>20)clearInterval(t);},500);
+  })();
 
   // ===== DSS Orbital Showcase =====
   (function(){

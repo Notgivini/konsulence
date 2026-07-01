@@ -62,9 +62,9 @@
 .closing .actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
 
 @media (max-width:1100px){
-  .r-item,.r-item:nth-child(even){grid-template-columns:1fr;gap:24px}
-  .r-item:nth-child(even) .roman{order:0;justify-self:start;text-align:left}
-  .r-item:nth-child(even) .body{order:0}
+  .r-item,.r-item:nth-child(even){grid-template-columns:1fr;gap:18px}
+  .r-item .roman,.r-item:nth-child(even) .roman{order:0;justify-self:start;text-align:left}
+  .r-item .body,.r-item:nth-child(even) .body{order:1}
   .r-item{padding:60px 0}
 }
 @media (max-width:680px){
