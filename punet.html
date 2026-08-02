@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="sq">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Punët tona — DSS @ konsulencë arGEar</title>
+<meta name="description" content="Menu digjitale, QR të personalizuar dhe faqe interneti për biznese në Shkodër, Velipojë e më gjerë. Shikoni punët reale të DSS." />
+<link rel="icon" href="assets/logo.png" />
+<link rel="canonical" href="https://konsulenceargear.com/punet.html" />
+<!-- Open Graph / social — og:image is the logo for now; TODO: swap in a 1200x630 share card (e.g. assets/og-card.png) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="konsulencë arGEar" />
+<meta property="og:locale" content="sq_AL" />
+<meta property="og:url" content="https://konsulenceargear.com/punet.html" />
+<meta property="og:title" content="Punët tona — DSS @ konsulencë arGEar" />
+<meta property="og:description" content="Menu digjitale, QR të personalizuar dhe faqe interneti për biznese në Shkodër, Velipojë e më gjerë. Shikoni punët reale të DSS." />
+<meta property="og:image" content="https://konsulenceargear.com/assets/logo.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Punët tona — DSS @ konsulencë arGEar" />
+<meta name="twitter:description" content="Menu digjitale, QR të personalizuar dhe faqe interneti për biznese në Shkodër, Velipojë e më gjerë. Shikoni punët reale të DSS." />
+<meta name="twitter:image" content="https://konsulenceargear.com/assets/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css" />
+<style>
+.pf-hero{padding:120px var(--pad-x) 96px;background:var(--bg);border-bottom:1px solid var(--line);text-align:center}
+.pf-hero h1{font-family:var(--font);font-weight:600;font-size:clamp(38px,5.6vw,88px);line-height:1.02;letter-spacing:-0.04em;color:var(--ink);margin:0;max-width:16ch;margin-left:auto;margin-right:auto}
+.pf-hero h1 em{color:var(--red);font-style:normal}
+.pf-hero .lead{margin:26px auto 0;max-width:560px;font-family:var(--font);font-weight:400;font-size:17.5px;line-height:1.6;color:var(--ink-2)}
+
+/* ============ PORTFOLIO GRID ============ */
+.pf-section{padding:var(--section-y) var(--pad-x);background:var(--paper)}
+.pf-section .container{max-width:1280px;margin:0 auto}
+.pf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px}
+
+.pf-card{background:var(--bg);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+a.pf-card-link{display:flex;flex-direction:column;height:100%;color:inherit;text-decoration:none}
+.pf-card--live{transition:border-color .25s ease, box-shadow .25s ease, transform .25s ease}
+.pf-card--live:hover,.pf-card--live:focus-within{border-color:var(--red);box-shadow:0 20px 40px -24px rgba(16,22,38,.28);transform:translateY(-3px)}
+
+.pf-media{background:var(--paper);border-bottom:1px solid var(--line);padding:28px;display:flex;align-items:center;justify-content:center;aspect-ratio:4/5;overflow:hidden}
+.pf-media img{max-width:100%;max-height:100%;width:auto;height:auto;display:block;object-fit:contain}
+
+.pf-body{padding:26px 24px 28px;display:flex;flex-direction:column;gap:10px;flex:1}
+.pf-body .no{font-family:var(--font);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);font-weight:600}
+.pf-meta{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.pf-client{font-family:var(--font);font-weight:600;font-size:19px;letter-spacing:-0.01em;color:var(--ink)}
+.pf-type{font-family:var(--font);font-weight:500;font-size:13px;color:var(--mute)}
+.pf-desc{font-family:var(--font);font-weight:400;font-size:15px;line-height:1.65;color:var(--ink-3);margin:0;flex:1}
+.pf-cta{font-family:var(--font);font-weight:600;font-size:13.5px;color:var(--red);margin-top:auto}
+
+.closing{padding:var(--section-y) var(--pad-x);background:#000;color:#fff;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid #1B2540}
+.closing::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 50% 0%,rgba(27,45,107,.32),transparent 70%),radial-gradient(50% 60% at 50% 100%,rgba(224,32,43,.22),transparent 70%);pointer-events:none}
+.closing .container{position:relative;max-width:780px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:26px}
+.closing h2{font-family:var(--font);font-weight:600;font-size:clamp(34px,5vw,64px);letter-spacing:-0.04em;line-height:1.05;color:#fff;margin:0}
+.closing h2 em{color:var(--red);font-style:normal}
+.closing .actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+
+@media (max-width:680px){
+  .pf-hero{padding:80px var(--pad-x) 56px}
+  .pf-hero h1{font-size:clamp(32px,9vw,52px)}
+  .pf-hero .lead{font-size:16px}
+  .closing h2{font-size:clamp(30px,9vw,44px)}
+  .closing .actions{width:100%;flex-direction:column;align-items:stretch}
+  .closing .actions .btn{justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="row">
+    <a href="index.html" class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <span class="wm">
+        <span class="nm">konsulencë ar<em class="nv">G</em><em>E</em>ar</span>
+        <span class="sub" data-i18n="header.brandSub">Shkodër · 2015</span>
+      </span>
+    </a>
+    <nav>
+      <a href="index.html" data-i18n="nav.home">Home</a>
+      <a href="about.html" data-i18n="nav.about">Rreth Nesh</a>
+      <a href="services.html" data-i18n="nav.services">Shërbime</a>
+      <a href="why-us.html" data-i18n="nav.why">Pse Ne</a>
+      <a href="software.html" data-i18n="nav.dss">DSS</a>
+      <a href="punet.html" aria-current="page" data-i18n="portfolio.crumb">Punët Tona</a>
+      <a href="tax-calculators.html" data-i18n="nav.calc">Kalkulator</a>
+      <a href="contact.html" data-i18n="nav.contact">Kontakt</a>
+    </nav>
+    <div class="actions">
+      <div class="lang-mobile" data-lang-mobile>
+        <button type="button" class="lang-mobile-toggle" aria-haspopup="menu" aria-expanded="false" aria-label="Choose language">
+          <span class="cur">SQ</span>
+          <svg class="chev" viewBox="0 0 12 12" aria-hidden="true" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-mobile-menu" role="menu" hidden>
+          <button data-lang="sq" role="menuitem"><span>SQ</span><span class="check">✓</span></button>
+          <button data-lang="en" role="menuitem"><span>EN</span><span class="check">✓</span></button>
+          <button data-lang="it" role="menuitem"><span>IT</span><span class="check">✓</span></button>
+          <button data-lang="de" role="menuitem"><span>DE</span><span class="check">✓</span></button>
+          <button data-lang="es" role="menuitem"><span>ES</span><span class="check">✓</span></button>
+        </div>
+      </div>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button data-lang="sq" aria-pressed="true">SQ</button>
+        <button data-lang="en" aria-pressed="false">EN</button>
+        <button data-lang="it" aria-pressed="false">IT</button>
+        <button data-lang="de" aria-pressed="false">DE</button>
+        <button data-lang="es" aria-pressed="false">ES</button>
+      </div>
+      <a class="btn btn-primary" href="contact.html"><span data-i18n="header.ctaContact">Na Shkruaj</span> <span class="arrow">→</span></a>
+    </div>
+    <button class="menu-toggle" aria-label="Hap menunë" data-i18n-aria="header.menuToggle" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-drawer" aria-hidden="true">
+  <nav>
+    <a href="index.html" data-i18n="nav.home">Home</a>
+    <a href="about.html" data-i18n="nav.about">Rreth Nesh</a>
+    <a href="services.html" data-i18n="nav.services">Shërbime</a>
+    <a href="why-us.html" data-i18n="nav.why">Pse Ne</a>
+    <a href="software.html" data-i18n="nav.dss">DSS</a>
+    <a href="punet.html" data-i18n="portfolio.crumb">Punët Tona</a>
+    <a href="tax-calculators.html" data-i18n="nav.calc">Kalkulator</a>
+    <a href="contact.html" data-i18n="nav.contact">Kontakt</a>
+  </nav>
+  <div class="info">
+    <a href="https://wa.me/355686555262" target="_blank" rel="noopener noreferrer">+355 68 655 5262</a>
+    <a href="mailto:argear_konsulence@yahoo.it">argear_konsulence@yahoo.it</a>
+    <span>Rruga Mbreti Gent · Shkodër</span>
+  </div>
+  <div class="lang-switch" role="group" aria-label="Language">
+    <button data-lang="sq" aria-pressed="true">SQ</button>
+    <button data-lang="en" aria-pressed="false">EN</button>
+    <button data-lang="it" aria-pressed="false">IT</button>
+    <button data-lang="de" aria-pressed="false">DE</button>
+    <button data-lang="es" aria-pressed="false">ES</button>
+  </div>
+</div>
+
+<section class="pf-hero">
+  <span class="eyebrow" style="display:inline-flex;margin-bottom:18px"><span class="ln"></span><span data-i18n="portfolio.eyebrow">Portofoli DSS</span></span>
+  <h1 data-i18n-html="portfolio.heading">Punë që mund t'i <em>hapni</em> tani.</h1>
+  <p class="lead" data-i18n="portfolio.sub">Çdo projekt më poshtë është online dhe funksionon. Hapeni dhe shikojeni vetë.</p>
+</section>
+
+<section class="pf-section">
+  <div class="container">
+    <div class="pf-grid">
+
+      <!-- § 01 Fantazia — live -->
+      <article class="pf-card pf-card--live reveal">
+        <a class="pf-card-link" href="https://fantaziamenu.com" target="_blank" rel="noopener noreferrer" aria-label="Fantazia — Hap menunë">
+          <div class="pf-media">
+            <img src="assets/portfolio/fantazia-card.webp" width="840" height="1184"
+                 data-i18n-alt="portfolio.p01.alt" alt="Karta e Fantazisë me QR për menunë, sfond i zi me kornizë ari dhe stemën blu e kuqe"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="pf-body">
+            <div class="no">01</div>
+            <div class="pf-meta">
+              <span class="pf-client">Fantazia</span>
+              <span class="pf-type" data-i18n="portfolio.p01.type">Hotel · Bar · Restorant</span>
+            </div>
+            <p class="pf-desc" data-i18n="portfolio.p01.desc">Menu digjitale dygjuhëshe, QR i personalizuar për tavolinat.</p>
+            <span class="pf-cta" data-i18n="portfolio.p01.cta">Hap menunë →</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- § 02 Kulla e Bajraktarit — live -->
+      <article class="pf-card pf-card--live reveal">
+        <a class="pf-card-link" href="https://kullaebajraktarit-menu.com" target="_blank" rel="noopener noreferrer" aria-label="Kulla e Bajraktarit — Hap menunë">
+          <div class="pf-media">
+            <img src="assets/portfolio/kulla-card.webp" width="840" height="1184"
+                 data-i18n-alt="portfolio.p02.alt" alt="Karta e Kullës së Bajraktarit me QR për menunë, sfond krem me stemën rrethore"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="pf-body">
+            <div class="no">02</div>
+            <div class="pf-meta">
+              <span class="pf-client">Kulla e Bajraktarit</span>
+              <span class="pf-type" data-i18n="portfolio.p02.type">Agroturizëm · Hotel & Spa</span>
+            </div>
+            <p class="pf-desc" data-i18n="portfolio.p02.desc">Menu digjitale dygjuhëshe e personalizuar dhe kartë tavoline A6 me QR-Code të integruar.</p>
+            <span class="pf-cta" data-i18n="portfolio.p02.cta">Hap menunë →</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- § 03 Marku Rent a Bike — static -->
+      <article class="pf-card pf-card--static reveal">
+        <div class="pf-media">
+          <img src="assets/portfolio/marku-qr.webp" width="1024" height="1024"
+               data-i18n-alt="portfolio.p03.alt" alt="QR i personalizuar Marku Rent a Bike, blu-jeshile dhe portokalli, me logon e biçikletës"
+               loading="lazy" decoding="async">
+        </div>
+        <div class="pf-body">
+          <div class="no">03</div>
+          <div class="pf-meta">
+            <span class="pf-client">Marku Rent a Bike</span>
+            <span class="pf-type" data-i18n="portfolio.p03.type">Qira biçikletash · Shkodër</span>
+          </div>
+          <p class="pf-desc" data-i18n="portfolio.p03.desc">QR i personalizuar për vlerësime në Google, i dizajnuar dhe personalizuar sipas identitetit të biznesit.</p>
+        </div>
+      </article>
+
+      <!-- § 04 Rrjolli Resort — static -->
+      <article class="pf-card pf-card--static reveal">
+        <div class="pf-media">
+          <img src="assets/portfolio/rrjolli-qr.webp" width="1600" height="1600"
+               data-i18n-alt="portfolio.p04.alt" alt="QR i personalizuar Rrjolli Resort, blu-jeshile dhe ari, me monogramin RR"
+               loading="lazy" decoding="async">
+        </div>
+        <div class="pf-body">
+          <div class="no">04</div>
+          <div class="pf-meta">
+            <span class="pf-client">Rrjolli Resort</span>
+            <span class="pf-type" data-i18n="portfolio.p04.type">Resort</span>
+          </div>
+          <p class="pf-desc" data-i18n="portfolio.p04.desc">QR i personalizuar për vlerësime në Google, i integruar me logon dhe ngjyrat e resortit.</p>
+        </div>
+      </article>
+
+      <!-- § 05 Hotel Bardhyl Hysaj — static -->
+      <article class="pf-card pf-card--static reveal">
+        <div class="pf-media">
+          <img src="assets/portfolio/bardhyl-card.webp" width="840" height="1184"
+               data-i18n-alt="portfolio.p05.alt" alt="Karta e Hotel Bardhyl Hysaj për vlerësime në Google, sfond krem me stemën blu e ari"
+               loading="lazy" decoding="async">
+        </div>
+        <div class="pf-body">
+          <div class="no">05</div>
+          <div class="pf-meta">
+            <span class="pf-client">Hotel Bardhyl Hysaj</span>
+            <span class="pf-type" data-i18n="portfolio.p05.type">Hotel</span>
+          </div>
+          <p class="pf-desc" data-i18n="portfolio.p05.desc">Krijim logoje dhe kartë A6 me QR-Code për vlerësime në Google.</p>
+        </div>
+      </article>
+
+      <!-- § 06 konsulencë arGEar — live -->
+      <article class="pf-card pf-card--live reveal">
+        <a class="pf-card-link" href="https://konsulenceargear.com" target="_blank" rel="noopener noreferrer" aria-label="konsulencë arGEar — Je këtu">
+          <div class="pf-media">
+            <img src="assets/portfolio/argear-site.webp" width="1290" height="1879"
+                 data-i18n-alt="portfolio.p06.alt" alt="Pamje e faqes kryesore konsulenceargear.com"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="pf-body">
+            <div class="no">06</div>
+            <div class="pf-meta">
+              <span class="pf-client">konsulencë arGEar</span>
+              <span class="pf-type" data-i18n="portfolio.p06.type">Konsulencë · Shkodër</span>
+            </div>
+            <p class="pf-desc" data-i18n="portfolio.p06.desc">Faqja që po lexoni, ka pesë gjuhë, kalkulator taksash dhe nënfaqe të tjera.</p>
+            <span class="pf-cta" data-i18n="portfolio.p06.cta">Je këtu →</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- § 07 Hotel Fantazia · Zuës — static -->
+      <article class="pf-card pf-card--static reveal">
+        <div class="pf-media">
+          <img src="assets/portfolio/fantazia-zues-qr.webp" width="1280" height="1280"
+               data-i18n-alt="portfolio.p07.alt" alt="QR-Code i personalizuar për vlerësime në Google, Hotel Fantazia Zuës"
+               loading="lazy" decoding="async">
+        </div>
+        <div class="pf-body">
+          <div class="no">07</div>
+          <div class="pf-meta">
+            <span class="pf-client">Hotel Fantazia · Zuës</span>
+            <span class="pf-type" data-i18n="portfolio.p07.type">Hotel · Bar · Restorant</span>
+          </div>
+          <p class="pf-desc" data-i18n="portfolio.p07.desc">QR-Code i personalizuar për vlerësime në Google.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <div class="container">
+    <h2 data-i18n-html="portfolio.closing.h2">Doni diçka të ngjashme për <em>biznesin tuaj?</em></h2>
+    <div class="actions">
+      <a class="btn btn-on-dark" href="mailto:dss.argear@gmail.com" data-i18n="btn.writeDss">Shkruaj DSS</a>
+      <a class="btn btn-ghost-light" href="https://wa.me/355694341434" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="top">
+    <div class="brand">
+      <div class="mark-row">
+        <span class="mark" aria-hidden="true"></span>
+        <span class="wm">konsulencë ar<em class="nv">G</em><em>E</em>ar</span>
+      </div>
+      <p class="tagline">Department of Software Solutions<br/>@ konsulencë arGEar · Shkodër</p>
+      <div class="socials">
+        <a href="https://www.linkedin.com/company/konsulencë-argear/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.21 24 24 23.23 24 22.28V1.72C24 .77 23.21 0 22.22 0z"/></svg></a>
+        <a href="https://www.facebook.com/argearok" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12c0-6.63-5.37-12-12-12S0 5.37 0 12c0 5.99 4.39 10.95 10.13 11.85v-8.38H7.08V12h3.05V9.35c0-3.01 1.79-4.67 4.53-4.67 1.31 0 2.69.23 2.69.23v2.96h-1.51c-1.49 0-1.95.92-1.95 1.87V12h3.33l-.53 3.47h-2.8v8.38C19.61 22.95 24 17.99 24 12z"/></svg></a>
+        <a href="https://www.instagram.com/konsulence_argear?igsh=MWgzdnVxbm4xMHl1eg==" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.47.72-2.13 1.38C1.35 2.67.94 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.47 1.38 2.13.66.66 1.34 1.07 2.13 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.31 1.47-.72 2.13-1.38.66-.66 1.07-1.34 1.38-2.13.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.31-.79-.72-1.47-1.38-2.13C21.33 1.35 20.66.94 19.86.63 19.1.33 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 12 8a4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a>
+      </div>
+    </div>
+    <div class="col"><h2 class="col-title" data-i18n="footer.pages">Faqet</h2><ul>
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li><li><a href="about.html" data-i18n="nav.about">Rreth Nesh</a></li><li><a href="services.html" data-i18n="nav.services">Shërbime</a></li><li><a href="why-us.html" data-i18n="nav.why">Pse Ne</a></li><li><a href="software.html" data-i18n="nav.dss">DSS</a></li><li><a href="tax-calculators.html" data-i18n="nav.calc">Kalkulator</a></li><li><a href="contact.html" data-i18n="nav.contact">Kontakt</a></li><li><a href="punet.html" data-i18n="portfolio.crumb">Punët Tona</a></li>
+    </ul></div>
+    <div class="col"><h2 class="col-title">Linja DSS</h2><ul>
+      <li><a href="software.html#offer">Website &amp; aplikacione</a></li><li><a href="software.html#offer">Menu online</a></li><li><a href="software.html#offer">E-commerce stores</a></li><li><a href="software.html#offer">Sisteme rezervimi</a></li><li><a href="software.html#offer">Google Maps &amp; SEO</a></li><li><a href="software.html#offer">QR për vlerësime</a></li>
+    </ul></div>
+    <div class="col">
+      <h2 class="col-title" data-i18n="footer.contact">Kontakt</h2>
+      <ul>
+        <li><a href="https://wa.me/355686555262" target="_blank" rel="noopener noreferrer">+355 68 655 5262</a></li>
+        <li><a href="mailto:argear_konsulence@yahoo.it">argear_konsulence@yahoo.it</a></li>
+        <li><span>Rruga Mbreti Gent</span></li>
+        <li><span>Shkodër · Albania</span></li>
+      </ul>
+      <div class="dss-contact">
+        <span class="lab" data-i18n="footer.dssLabel">DSS · Software</span>
+        <a href="mailto:dss.argear@gmail.com">dss.argear@gmail.com</a>
+        <a href="https://wa.me/355694341434" target="_blank" rel="noopener noreferrer">+355 69 434 1 434</a>
+      </div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div>© 2026 DSS @ konsulencë ar<em class="nv">G</em><em>E</em>ar</div>
+    <div class="center" data-i18n-html="footer.setIn">Set in <em>Archivo</em></div>
+    <div class="right" data-i18n="footer.cityCountry">Shkodër · Albania</div>
+  </div>
+</footer>
+
+<script>
+  // ===== reveal-on-scroll =====
+  (function(){
+    const items = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){items.forEach(i=>i.classList.add('in-view'));return;}
+    const io = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-view');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'-40px 0px'});
+    items.forEach(i=>io.observe(i));
+  })();
+
+  // ===== mobile drawer =====
+  (function(){const btn=document.querySelector('.menu-toggle');const drawer=document.querySelector('.mobile-drawer');if(!btn||!drawer)return;btn.addEventListener('click',()=>{const o=drawer.classList.toggle('open');btn.classList.toggle('open',o);btn.setAttribute('aria-expanded',String(o));drawer.setAttribute('aria-hidden',String(!o));document.body.style.overflow=o?'hidden':'';});drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{drawer.classList.remove('open');btn.classList.remove('open');document.body.style.overflow='';}));})();
+</script>
+
+<a class="wa-fab" href="https://wa.me/355694341434" target="_blank" rel="noopener noreferrer" aria-label="Bisedo me DSS në WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.297-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.298A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0 0 20.464 3.488"/></svg>
+  <span class="tip">Bisedo me DSS</span>
+</a>
+<script src="assets/i18n.js" defer></script>
+</body>
+</html>

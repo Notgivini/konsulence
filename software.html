@@ -147,6 +147,33 @@
 .offer .it h3 em{color:inherit;font-style:normal}
 .offer .it p{font-family:var(--font);font-weight:400;font-size:15px;line-height:1.65;color:var(--ink-3);margin:0;max-width:340px}
 
+/* ============ Portfolio teaser ============ */
+.pf-teaser{padding:var(--section-y) var(--pad-x);background:var(--bg);border-bottom:1px solid var(--line)}
+.pf-teaser .container{max-width:1280px;margin:0 auto}
+.pf-teaser .head{text-align:center;margin-bottom:60px}
+.pf-teaser .head h2{font-family:var(--font);font-weight:600;font-size:clamp(34px,4.5vw,68px);letter-spacing:-0.04em;line-height:1;color:var(--ink);margin:14px 0 0;max-width:16ch;margin-left:auto;margin-right:auto}
+.pf-teaser .head h2 em{color:var(--red);font-style:normal}
+.pf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.pf-card{background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+a.pf-card-link{display:flex;flex-direction:column;height:100%;color:inherit;text-decoration:none}
+.pf-card--live{transition:border-color .25s ease, box-shadow .25s ease, transform .25s ease}
+.pf-card--live:hover,.pf-card--live:focus-within{border-color:var(--red);box-shadow:0 20px 40px -24px rgba(16,22,38,.28);transform:translateY(-3px)}
+.pf-media{background:var(--bg);border-bottom:1px solid var(--line);padding:26px;display:flex;align-items:center;justify-content:center;aspect-ratio:4/5;overflow:hidden}
+.pf-media img{max-width:100%;max-height:100%;width:auto;height:auto;display:block;object-fit:contain}
+.pf-body{padding:24px 22px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.pf-body .no{font-family:var(--font);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);font-weight:600}
+.pf-meta{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.pf-client{font-family:var(--font);font-weight:600;font-size:18px;letter-spacing:-0.01em;color:var(--ink)}
+.pf-type{font-family:var(--font);font-weight:500;font-size:12.5px;color:var(--mute)}
+.pf-desc{font-family:var(--font);font-weight:400;font-size:14.5px;line-height:1.6;color:var(--ink-3);margin:0;flex:1}
+.pf-cta{font-family:var(--font);font-weight:600;font-size:13px;color:var(--red);margin-top:auto}
+.pf-teaser-more{text-align:center;margin-top:44px}
+.pf-teaser-more a{font-family:var(--font);font-weight:600;font-size:15px;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:10px;padding-bottom:2px;border-bottom:1px solid var(--line-2);transition:color .2s ease,border-color .2s ease}
+.pf-teaser-more a:hover{color:var(--red);border-color:var(--red)}
+@media (max-width:680px){
+  .pf-teaser .head{margin-bottom:40px}
+}
+
 /* ============ DSS contact card ============ */
 #dss-contact{padding:var(--section-y) var(--pad-x);background:var(--bg);border-bottom:1px solid var(--line)}
 #dss-contact .container{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
@@ -441,6 +468,7 @@
       <a href="services.html" data-i18n="nav.services">Shërbime</a>
       <a href="why-us.html" data-i18n="nav.why">Pse Ne</a>
       <a href="software.html" aria-current="page" data-i18n="nav.dss">DSS</a>
+      <a href="punet.html" data-i18n="portfolio.crumb">Punët Tona</a>
       <a href="tax-calculators.html" data-i18n="nav.calc">Kalkulator</a>
       <a href="contact.html" data-i18n="nav.contact">Kontakt</a>
     </nav>
@@ -478,6 +506,7 @@
     <a href="services.html" data-i18n="nav.services">Shërbime</a>
     <a href="why-us.html" data-i18n="nav.why">Pse Ne</a>
     <a href="software.html" data-i18n="nav.dss">DSS</a>
+    <a href="punet.html" data-i18n="portfolio.crumb">Punët Tona</a>
     <a href="tax-calculators.html" data-i18n="nav.calc">Kalkulator</a>
     <a href="contact.html" data-i18n="nav.contact">Kontakt</a>
   </nav>
@@ -513,6 +542,79 @@
   <div class="container reveal">
     <p class="quote" data-i18n-html="dss.manifesto.q">Ne jemi <em>të pasionuar</em> pas programimit dhe e bëjmë atë të prekshëm.</p>
     <p class="sub" data-i18n="dss.manifesto.sub">DSS · Department of Software Solutions</p>
+  </div>
+</section>
+
+<!-- ============ Portfolio teaser ============ -->
+<section class="pf-teaser" id="portfolio-teaser">
+  <div class="container">
+    <div class="head reveal">
+      <span class="eyebrow"><span class="ln"></span><span data-i18n="portfolio.eyebrow">Portofoli DSS</span></span>
+      <h2 data-i18n-html="portfolio.heading">Punë që mund t'i <em>hapni</em> tani.</h2>
+    </div>
+    <div class="pf-grid">
+
+      <!-- § 01 Fantazia — live -->
+      <article class="pf-card pf-card--live reveal">
+        <a class="pf-card-link" href="https://fantaziamenu.com" target="_blank" rel="noopener noreferrer" aria-label="Fantazia — Hap menunë">
+          <div class="pf-media">
+            <img src="assets/portfolio/fantazia-card.webp" width="840" height="1184"
+                 data-i18n-alt="portfolio.p01.alt" alt="Karta e Fantazisë me QR për menunë, sfond i zi me kornizë ari dhe stemën blu e kuqe"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="pf-body">
+            <div class="no">01</div>
+            <div class="pf-meta">
+              <span class="pf-client">Fantazia</span>
+              <span class="pf-type" data-i18n="portfolio.p01.type">Hotel · Bar · Restorant</span>
+            </div>
+            <p class="pf-desc" data-i18n="portfolio.p01.desc">Menu digjitale dygjuhëshe, QR i personalizuar për tavolinat.</p>
+            <span class="pf-cta" data-i18n="portfolio.p01.cta">Hap menunë →</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- § 02 Kulla e Bajraktarit — live -->
+      <article class="pf-card pf-card--live reveal reveal-delay-1">
+        <a class="pf-card-link" href="https://kullaebajraktarit-menu.com" target="_blank" rel="noopener noreferrer" aria-label="Kulla e Bajraktarit — Hap menunë">
+          <div class="pf-media">
+            <img src="assets/portfolio/kulla-card.webp" width="840" height="1184"
+                 data-i18n-alt="portfolio.p02.alt" alt="Karta e Kullës së Bajraktarit me QR për menunë, sfond krem me stemën rrethore"
+                 loading="lazy" decoding="async">
+          </div>
+          <div class="pf-body">
+            <div class="no">02</div>
+            <div class="pf-meta">
+              <span class="pf-client">Kulla e Bajraktarit</span>
+              <span class="pf-type" data-i18n="portfolio.p02.type">Agroturizëm · Hotel & Spa</span>
+            </div>
+            <p class="pf-desc" data-i18n="portfolio.p02.desc">Menu digjitale dygjuhëshe e personalizuar dhe kartë tavoline A6 me QR-Code të integruar.</p>
+            <span class="pf-cta" data-i18n="portfolio.p02.cta">Hap menunë →</span>
+          </div>
+        </a>
+      </article>
+
+      <!-- § 03 Marku Rent a Bike — static -->
+      <article class="pf-card pf-card--static reveal reveal-delay-2">
+        <div class="pf-media">
+          <img src="assets/portfolio/marku-qr.webp" width="1024" height="1024"
+               data-i18n-alt="portfolio.p03.alt" alt="QR i personalizuar Marku Rent a Bike, blu-jeshile dhe portokalli, me logon e biçikletës"
+               loading="lazy" decoding="async">
+        </div>
+        <div class="pf-body">
+          <div class="no">03</div>
+          <div class="pf-meta">
+            <span class="pf-client">Marku Rent a Bike</span>
+            <span class="pf-type" data-i18n="portfolio.p03.type">Qira biçikletash · Shkodër</span>
+          </div>
+          <p class="pf-desc" data-i18n="portfolio.p03.desc">QR i personalizuar për vlerësime në Google, i dizajnuar dhe personalizuar sipas identitetit të biznesit.</p>
+        </div>
+      </article>
+
+    </div>
+    <div class="pf-teaser-more reveal">
+      <a href="punet.html"><span data-i18n="portfolio.seeAll">Shiko gjithë portofolin</span> <span class="arrow">→</span></a>
+    </div>
   </div>
 </section>
 
@@ -643,7 +745,7 @@
       </div>
     </div>
     <div class="col"><h2 class="col-title" data-i18n="footer.pages">Faqet</h2><ul>
-      <li><a href="index.html" data-i18n="nav.home">Home</a></li><li><a href="about.html" data-i18n="nav.about">Rreth Nesh</a></li><li><a href="services.html" data-i18n="nav.services">Shërbime</a></li><li><a href="why-us.html" data-i18n="nav.why">Pse Ne</a></li><li><a href="software.html" data-i18n="nav.dss">DSS</a></li><li><a href="tax-calculators.html" data-i18n="nav.calc">Kalkulator</a></li><li><a href="contact.html" data-i18n="nav.contact">Kontakt</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Home</a></li><li><a href="about.html" data-i18n="nav.about">Rreth Nesh</a></li><li><a href="services.html" data-i18n="nav.services">Shërbime</a></li><li><a href="why-us.html" data-i18n="nav.why">Pse Ne</a></li><li><a href="software.html" data-i18n="nav.dss">DSS</a></li><li><a href="tax-calculators.html" data-i18n="nav.calc">Kalkulator</a></li><li><a href="contact.html" data-i18n="nav.contact">Kontakt</a></li><li><a href="punet.html" data-i18n="portfolio.crumb">Punët Tona</a></li>
     </ul></div>
     <div class="col"><h2 class="col-title">Linja DSS</h2><ul>
       <li><a href="#offer">Website &amp; aplikacione</a></li><li><a href="#offer">Menu online</a></li><li><a href="#offer">E-commerce stores</a></li><li><a href="#offer">Sisteme rezervimi</a></li><li><a href="#offer">Google Maps &amp; SEO</a></li><li><a href="#offer">QR për vlerësime</a></li>

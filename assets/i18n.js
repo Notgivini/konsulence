@@ -115,6 +115,15 @@
       'dss.n4.title':'Sisteme Rezervimi','dss.n4.badge':'04 · Booking','dss.n4.desc':'Rezervime direkt përmes WhatsApp, me mesazh të gatshëm — pa aplikacion, pa tarifë mujore.',
       'dss.n5.title':'Google Maps & SEO','dss.n5.badge':'05 · Maps','dss.n5.desc':'Profili në Google Maps i ngritur dhe i optimizuar, që klientët t’ju gjejnë të parët.',
       'dss.n6.title':'QR-Code për Vlerësime','dss.n6.badge':'06 · QR','dss.n6.desc':'QR të personalizuar e gati për printim që çojnë klientin direkt te vlerësimi në Google.',
+      // Portfolio (DSS)
+      'portfolio.p01.type':'Hotel · Bar · Restorant','portfolio.p01.desc':'Menu digjitale dygjuhëshe, QR i personalizuar për tavolinat.','portfolio.p01.cta':'Hap menunë →','portfolio.p01.alt':'Karta e Fantazisë me QR për menunë, sfond i zi me kornizë ari dhe stemën blu e kuqe',
+      'portfolio.p03.type':'Qira biçikletash · Shkodër','portfolio.p03.desc':'QR i personalizuar për vlerësime në Google, i dizajnuar dhe personalizuar sipas identitetit të biznesit.','portfolio.p03.alt':'QR i personalizuar Marku Rent a Bike, blu-jeshile dhe portokalli, me logon e biçikletës',
+      'portfolio.p02.type':'Agroturizëm · Hotel & Spa','portfolio.p02.desc':'Menu digjitale dygjuhëshe e personalizuar dhe kartë tavoline A6 me QR-Code të integruar.','portfolio.p02.cta':'Hap menunë →','portfolio.p02.alt':'Karta e Kullës së Bajraktarit me QR për menunë, sfond krem me stemën rrethore',
+      'portfolio.p04.type':'Resort','portfolio.p04.desc':'QR i personalizuar për vlerësime në Google, i integruar me logon dhe ngjyrat e resortit.','portfolio.p04.alt':'QR i personalizuar Rrjolli Resort, blu-jeshile dhe ari, me monogramin RR',
+      'portfolio.p05.type':'Hotel','portfolio.p05.desc':'Krijim logoje dhe kartë A6 me QR-Code për vlerësime në Google.','portfolio.p05.alt':'Karta e Hotel Bardhyl Hysaj për vlerësime në Google, sfond krem me stemën blu e ari',
+      'portfolio.p06.type':'Konsulencë · Shkodër','portfolio.p06.desc':'Faqja që po lexoni, ka pesë gjuhë, kalkulator taksash dhe nënfaqe të tjera.','portfolio.p06.cta':'Je këtu →','portfolio.p06.alt':'Pamje e faqes kryesore konsulenceargear.com',
+      'portfolio.p07.type':'Hotel · Bar · Restorant','portfolio.p07.desc':'QR-Code i personalizuar për vlerësime në Google.','portfolio.p07.alt':'QR-Code i personalizuar për vlerësime në Google, Hotel Fantazia Zuës',
+      'portfolio.eyebrow':'Portofoli DSS','portfolio.heading':'Punë që mund t\'i <em>hapni</em> tani.','portfolio.sub':'Çdo projekt më poshtë është online dhe funksionon. Hapeni dhe shikojeni vetë.','portfolio.crumb':'Punët Tona','portfolio.closing.h2':'Doni diçka të ngjashme për <em>biznesin tuaj?</em>','portfolio.seeAll':'Shiko gjithë portofolin',
       // Calculator
       'calc.crumb':'Kalkulator','calc.hero.h1':'Numra <em>të qartë.</em><br/>Para se të firmosni.',
       'calc.hero.lead':'Tre kalkulatorë falas për TVSH-në, llogaritjen e pagave nga bruto në neto dhe tatimin në burim.',
@@ -249,6 +258,14 @@
       'dss.n4.title':'Booking Systems','dss.n4.badge':'04 · Booking','dss.n4.desc':'Reservations straight through WhatsApp with a ready-filled message — no app, no monthly fee.',
       'dss.n5.title':'Google Maps & SEO','dss.n5.badge':'05 · Maps','dss.n5.desc':'Your Google Business Profile set up and optimised so customers find you first.',
       'dss.n6.title':'QR-Codes for Reviews','dss.n6.badge':'06 · QR','dss.n6.desc':'Branded, print-ready QR codes that take customers straight to a Google review.',
+      'portfolio.p01.type':'Hotel · Bar · Restaurant','portfolio.p01.desc':'Bilingual digital menu and a custom QR code for the tables.','portfolio.p01.cta':'Open the menu →','portfolio.p01.alt':'Fantazia menu QR card, black background with gold trim and the blue-and-red crest',
+      'portfolio.p03.type':'Bike rental · Shkodër','portfolio.p03.desc':'Custom Google review QR code, designed and personalised around the business\'s own identity.','portfolio.p03.alt':'Custom Marku Rent a Bike QR code, teal and orange, with the bicycle logo',
+      'portfolio.p02.type':'Agritourism · Hotel & Spa','portfolio.p02.desc':'Custom bilingual digital menu and an A6 table card with an integrated QR code.','portfolio.p02.cta':'Open the menu →','portfolio.p02.alt':'Kulla e Bajraktarit menu QR card, cream background with the circular crest',
+      'portfolio.p04.type':'Resort','portfolio.p04.desc':'Custom Google review QR code, built into the resort\'s logo and colours.','portfolio.p04.alt':'Custom Rrjolli Resort QR code, teal and gold, with the RR monogram',
+      'portfolio.p05.type':'Hotel','portfolio.p05.desc':'Logo design and an A6 card with a Google review QR code.','portfolio.p05.alt':'Hotel Bardhyl Hysaj Google review card, cream background with the navy-and-gold crest',
+      'portfolio.p06.type':'Consulting · Shkodër','portfolio.p06.desc':'The site you\'re reading — five languages, a tax calculator, and further subpages.','portfolio.p06.cta':'You\'re here →','portfolio.p06.alt':'Screenshot of the konsulenceargear.com homepage',
+      'portfolio.p07.type':'Hotel · Bar · Restaurant','portfolio.p07.desc':'Custom QR code for Google reviews.','portfolio.p07.alt':'Custom Google review QR code, Hotel Fantazia Zuës',
+      'portfolio.eyebrow':'DSS Portfolio','portfolio.heading':'Work you can <em>open</em> right now.','portfolio.sub':'Every project below is live and working. Open it and see for yourself.','portfolio.crumb':'Our Work','portfolio.closing.h2':'Want something like this <em>for your business?</em>','portfolio.seeAll':'See the full portfolio',
       'calc.crumb':'Calculators','calc.hero.h1':'Clear <em>numbers.</em><br/>Before you sign.',
       'calc.hero.lead':'Three free calculators for TVSH, gross‑to‑net payroll and withholding tax.',
       'calc.hero.tag':'Free tools · 2026','calc.tabs.aria':'Choose the calculator',
@@ -381,6 +398,14 @@
       'dss.n4.title':'Sistemi di prenotazione','dss.n4.badge':'04 · Booking','dss.n4.desc':'Prenotazioni direttamente su WhatsApp con un messaggio già pronto — senza app, senza canone mensile.',
       'dss.n5.title':'Google Maps & SEO','dss.n5.badge':'05 · Maps','dss.n5.desc':'Il profilo Google della tua attività creato e ottimizzato, così i clienti ti trovano per primi.',
       'dss.n6.title':'QR-Code per recensioni','dss.n6.badge':'06 · QR','dss.n6.desc':'QR personalizzati e pronti per la stampa che portano il cliente dritto a una recensione Google.',
+      'portfolio.p01.type':'Hotel · Bar · Ristorante','portfolio.p01.desc':'Menù digitale bilingue e QR personalizzato per i tavoli.','portfolio.p01.cta':'Apri il menù →','portfolio.p01.alt':'Card QR menù Fantazia, sfondo nero con bordo oro e stemma blu e rosso',
+      'portfolio.p03.type':'Noleggio biciclette · Scutari','portfolio.p03.desc':'QR code personalizzato per le recensioni Google, progettato e personalizzato secondo l\'identità del brand.','portfolio.p03.alt':'QR code personalizzato Marku Rent a Bike, verde acqua e arancione, con il logo della bicicletta',
+      'portfolio.p02.type':'Agriturismo · Hotel & Spa','portfolio.p02.desc':'Menù digitale bilingue personalizzato e cartellino da tavolo A6 con QR-Code integrato.','portfolio.p02.cta':'Apri il menù →','portfolio.p02.alt':'Card QR menù Kulla e Bajraktarit, sfondo crema con lo stemma circolare',
+      'portfolio.p04.type':'Resort','portfolio.p04.desc':'QR code personalizzato per le recensioni Google, integrato con il logo e i colori del resort.','portfolio.p04.alt':'QR code personalizzato Rrjolli Resort, verde acqua e oro, con il monogramma RR',
+      'portfolio.p05.type':'Hotel','portfolio.p05.desc':'Creazione del logo e cartellino A6 con QR-Code per le recensioni Google.','portfolio.p05.alt':'Card recensioni Google di Hotel Bardhyl Hysaj, sfondo crema con stemma blu e oro',
+      'portfolio.p06.type':'Consulenza · Scutari','portfolio.p06.desc':'Il sito che state leggendo, ha cinque lingue, un calcolatore fiscale e altre sottopagine.','portfolio.p06.cta':'Sei qui →','portfolio.p06.alt':'Schermata della homepage di konsulenceargear.com',
+      'portfolio.p07.type':'Hotel · Bar · Ristorante','portfolio.p07.desc':'QR-Code personalizzato per le recensioni Google.','portfolio.p07.alt':'QR-Code personalizzato per recensioni Google, Hotel Fantazia Zuës',
+      'portfolio.eyebrow':'Portfolio DSS','portfolio.heading':'Lavori che potete <em>aprire</em> subito.','portfolio.sub':'Ogni progetto qui sotto è online e funzionante. Apritelo e verificate voi stessi.','portfolio.crumb':'I Nostri Lavori','portfolio.closing.h2':'Desidera qualcosa di simile <em>per la sua attività?</em>','portfolio.seeAll':'Vedi tutto il portfolio',
       'calc.crumb':'Calcolatori','calc.hero.h1':'Numeri <em>chiari.</em><br/>Prima di firmare.',
       'calc.hero.lead':'Tre calcolatori gratuiti per TVSH, il calcolo degli stipendi dal lordo al netto e la ritenuta d\'acconto.',
       'calc.hero.tag':'Strumenti gratuiti · 2026','calc.tabs.aria':'Scegliete il calcolatore',
@@ -513,6 +538,14 @@
       'dss.n4.title':'Reservierungssysteme','dss.n4.badge':'04 · Booking','dss.n4.desc':'Reservierungen direkt über WhatsApp mit vorausgefüllter Nachricht — ohne App, ohne monatliche Gebühr.',
       'dss.n5.title':'Google Maps & SEO','dss.n5.badge':'05 · Maps','dss.n5.desc':'Ihr Google-Unternehmensprofil eingerichtet und optimiert, damit Kunden Sie zuerst finden.',
       'dss.n6.title':'QR-Codes für Bewertungen','dss.n6.badge':'06 · QR','dss.n6.desc':'Gebrandete, druckfertige QR-Codes, die Kunden direkt zur Google-Bewertung führen.',
+      'portfolio.p01.type':'Hotel · Bar · Restaurant','portfolio.p01.desc':'Zweisprachige digitale Speisekarte und individueller QR-Code für die Tische.','portfolio.p01.cta':'Menü öffnen →','portfolio.p01.alt':'Fantazia-Menü-QR-Karte, schwarzer Hintergrund mit Goldrand und blau-rotem Wappen',
+      'portfolio.p03.type':'Fahrradverleih · Shkodër','portfolio.p03.desc':'Individueller Google-Bewertungs-QR-Code, gestaltet nach der Identität des Unternehmens.','portfolio.p03.alt':'Individueller Marku-Rent-a-Bike-QR-Code, Petrol und Orange, mit dem Fahrrad-Logo',
+      'portfolio.p02.type':'Agrotourismus · Hotel & Spa','portfolio.p02.desc':'Individuelle zweisprachige digitale Speisekarte und A6-Tischkarte mit integriertem QR-Code.','portfolio.p02.cta':'Menü öffnen →','portfolio.p02.alt':'Kulla-e-Bajraktarit-Menü-QR-Karte, cremefarbener Hintergrund mit rundem Wappen',
+      'portfolio.p04.type':'Resort','portfolio.p04.desc':'Individueller Google-Bewertungs-QR-Code, integriert in Logo und Farben des Resorts.','portfolio.p04.alt':'Individueller Rrjolli-Resort-QR-Code, Petrol und Gold, mit dem RR-Monogramm',
+      'portfolio.p05.type':'Hotel','portfolio.p05.desc':'Logo-Design und A6-Karte mit QR-Code für Google-Bewertungen.','portfolio.p05.alt':'Google-Bewertungskarte von Hotel Bardhyl Hysaj, cremefarbener Hintergrund mit marineblauem und goldenem Wappen',
+      'portfolio.p06.type':'Beratung · Shkodër','portfolio.p06.desc':'Die Website, die Sie gerade lesen, hat fünf Sprachen, einen Steuerrechner und weitere Unterseiten.','portfolio.p06.cta':'Sie sind hier →','portfolio.p06.alt':'Screenshot der Startseite von konsulenceargear.com',
+      'portfolio.p07.type':'Hotel · Bar · Restaurant','portfolio.p07.desc':'Individueller QR-Code für Google-Bewertungen.','portfolio.p07.alt':'Individueller Google-Bewertungs-QR-Code, Hotel Fantazia Zuës',
+      'portfolio.eyebrow':'DSS-Portfolio','portfolio.heading':'Arbeiten, die Sie jetzt <em>öffnen</em> können.','portfolio.sub':'Jedes Projekt unten ist live und funktioniert. Öffnen Sie es und überzeugen Sie sich selbst.','portfolio.crumb':'Unsere Arbeiten','portfolio.closing.h2':'Möchten Sie etwas Ähnliches <em>für Ihr Unternehmen?</em>','portfolio.seeAll':'Gesamtes Portfolio ansehen',
       'calc.crumb':'Rechner','calc.hero.h1':'Klare <em>Zahlen.</em><br/>Bevor Sie unterschreiben.',
       'calc.hero.lead':'Drei kostenlose Rechner für TVSH, die Lohnberechnung von brutto auf netto und die Quellensteuer.',
       'calc.hero.tag':'Kostenlose Tools · 2026','calc.tabs.aria':'Rechner auswählen',
@@ -645,6 +678,14 @@
       'dss.n4.title':'Sistemas de reservas','dss.n4.badge':'04 · Booking','dss.n4.desc':'Reservas directamente por WhatsApp con un mensaje ya preparado — sin app ni cuota mensual.',
       'dss.n5.title':'Google Maps y SEO','dss.n5.badge':'05 · Maps','dss.n5.desc':'Tu perfil de empresa en Google creado y optimizado para que los clientes te encuentren primero.',
       'dss.n6.title':'Códigos QR para reseñas','dss.n6.badge':'06 · QR','dss.n6.desc':'Códigos QR personalizados y listos para imprimir que llevan al cliente directo a una reseña de Google.',
+      'portfolio.p01.type':'Hotel · Bar · Restaurante','portfolio.p01.desc':'Menú digital bilingüe y código QR personalizado para las mesas.','portfolio.p01.cta':'Abrir el menú →','portfolio.p01.alt':'Tarjeta QR del menú de Fantazia, fondo negro con borde dorado y escudo azul y rojo',
+      'portfolio.p03.type':'Alquiler de bicicletas · Shkodër','portfolio.p03.desc':'Código QR personalizado para reseñas de Google, diseñado y personalizado según la identidad del negocio.','portfolio.p03.alt':'Código QR personalizado de Marku Rent a Bike, verde azulado y naranja, con el logo de la bicicleta',
+      'portfolio.p02.type':'Agroturismo · Hotel & Spa','portfolio.p02.desc':'Menú digital bilingüe personalizado y tarjeta de mesa A6 con código QR integrado.','portfolio.p02.cta':'Abrir el menú →','portfolio.p02.alt':'Tarjeta QR del menú de Kulla e Bajraktarit, fondo crema con el escudo circular',
+      'portfolio.p04.type':'Resort','portfolio.p04.desc':'Código QR personalizado para reseñas de Google, integrado con el logo y los colores del resort.','portfolio.p04.alt':'Código QR personalizado de Rrjolli Resort, verde azulado y dorado, con el monograma RR',
+      'portfolio.p05.type':'Hotel','portfolio.p05.desc':'Creación del logotipo y tarjeta A6 con código QR para reseñas de Google.','portfolio.p05.alt':'Tarjeta de reseñas de Google de Hotel Bardhyl Hysaj, fondo crema con escudo azul marino y dorado',
+      'portfolio.p06.type':'Consultoría · Shkodër','portfolio.p06.desc':'El sitio que está leyendo, tiene cinco idiomas, una calculadora de impuestos y otras subpáginas.','portfolio.p06.cta':'Está aquí →','portfolio.p06.alt':'Captura de la página de inicio de konsulenceargear.com',
+      'portfolio.p07.type':'Hotel · Bar · Restaurante','portfolio.p07.desc':'Código QR personalizado para reseñas de Google.','portfolio.p07.alt':'Código QR personalizado para reseñas de Google, Hotel Fantazia Zuës',
+      'portfolio.eyebrow':'Portafolio DSS','portfolio.heading':'Trabajos que puede <em>abrir</em> ahora mismo.','portfolio.sub':'Cada proyecto de abajo está en línea y funciona. Ábralo y compruébelo usted mismo.','portfolio.crumb':'Nuestros Trabajos','portfolio.closing.h2':'¿Quiere algo similar <em>para su negocio?</em>','portfolio.seeAll':'Ver todo el portafolio',
       'calc.crumb':'Calculadoras','calc.hero.h1':'Cifras <em>claras.</em><br/>Antes de firmar.',
       'calc.hero.lead':'Tres calculadoras gratuitas para TVSH, el cálculo de salarios de bruto a neto y la retención.',
       'calc.hero.tag':'Herramientas gratuitas · 2026','calc.tabs.aria':'Elija la calculadora',
@@ -727,6 +768,11 @@
     document.querySelectorAll('[data-i18n-title]').forEach(function(el){
       const v = tr(lang, el.getAttribute('data-i18n-title'));
       if(v !== null) el.setAttribute('title', v);
+    });
+    // image alt text
+    document.querySelectorAll('[data-i18n-alt]').forEach(function(el){
+      const v = tr(lang, el.getAttribute('data-i18n-alt'));
+      if(v !== null) el.setAttribute('alt', v);
     });
     // language switcher active state (desktop + drawer)
     document.querySelectorAll('.lang-switch [data-lang]').forEach(function(b){

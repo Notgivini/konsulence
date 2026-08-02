@@ -1,5 +1,6 @@
 node_modules/
 temporary screenshots/
+portfolio-preview-TEMP.html
 *.log
 .DS_Store
 Thumbs.db
