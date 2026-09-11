@@ -733,6 +733,13 @@
     if(stored && LANGS.indexOf(stored) !== -1) return stored;
     return DEFAULT;
   }
+  function getUrlLang(){
+    try {
+      const p = new URLSearchParams(window.location.search).get('lang');
+      if(p && LANGS.indexOf(p) !== -1) return p;
+    } catch(e){}
+    return '';
+  }
 
   function tr(lang, key){
     const dict = T[lang] || T[DEFAULT];
@@ -840,7 +847,12 @@
 
   function init(){
     bindSwitchers();
-    applyLang(currentLang());
+    const urlLang = getUrlLang();
+    if(urlLang){
+      setLang(urlLang);            // valid ?lang= wins; setLang persists to localStorage
+    } else {
+      applyLang(currentLang());    // unchanged: saved value, else Albanian
+    }
   }
 
   // expose
