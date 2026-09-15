@@ -71,7 +71,7 @@ p{margin:0}
   font-family:var(--font);font-size:12.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-3);
   display:inline-flex;align-items:center;gap:14px;font-weight:600;
 }
-.eyebrow .ln{display:inline-block;width:24px;height:1px;background:var(--red)}
+.eyebrow .ln{display:none;width:24px;height:1px;background:var(--red)}
 .eyebrow.light{color:#A3ABBF}
 .eyebrow.light .ln{background:var(--red)}
 
